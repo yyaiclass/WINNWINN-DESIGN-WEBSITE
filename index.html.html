@@ -32,13 +32,13 @@
   --brass-rgb:178,143,96;
   --sage-rgb:138,146,129;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;font-family:Inter,'Noto Sans TC',sans-serif;color:var(--charcoal);background:var(--canvas);-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--walnut);outline-offset:4px}button{cursor:pointer}img{display:block;max-width:100%}section{scroll-margin-top:82px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;font-family:Inter,'Noto Sans TC',sans-serif;color:var(--charcoal);background:var(--canvas);-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--walnut);outline-offset:4px}button{cursor:pointer}img{display:block;max-width:100%}section{scroll-margin-top:0}
 .wrap{max-width:1280px;margin:auto;padding:0 clamp(22px,5vw,80px)}
 .en{font-family:Manrope,Inter,sans-serif}
 .eyebrow{letter-spacing:.23em;font:700 11px Manrope,Inter,sans-serif;color:var(--text-muted);text-transform:uppercase}
 .accent-text{color:var(--walnut)}
 .glass{background:rgba(var(--canvas-rgb),.79);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.topnav{position:fixed;inset:0 0 auto;z-index:60;transition:.3s}
+.topnav{position:fixed;inset:0 0 auto;z-index:60;background:rgba(var(--canvas-rgb),.94);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(var(--walnut-rgb),.12);transition:.3s}
 .topnav.scrolled{background:rgba(var(--canvas-rgb),.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);box-shadow:0 6px 40px rgba(var(--charcoal-rgb),.043)}
 .navlink{color:var(--text-muted);position:relative;transition:color .2s}
 .navlink:hover,.navlink.active{color:var(--walnut)}
@@ -49,7 +49,7 @@
 .btn-primary{color:var(--white);background:var(--walnut);border-color:var(--walnut)}
 .btn-outline{color:var(--walnut);background:rgba(var(--canvas-rgb),.90);border-color:var(--walnut)}
 .hero{position:relative;min-height:810px;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--canvas)}
-.hero-image{position:absolute;inset:0 0 0 39%;background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85');background-position:center;background-size:cover}
+.hero-image{position:absolute;inset:0 0 0 39%;background-image:url('作品集/連鎖餐飲商空/商空 (2).png');background-position:center;background-size:cover}
 .hero-image:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--canvas) 0%,rgba(var(--canvas-rgb),.94) 10%,rgba(var(--canvas-rgb),.50) 35%,rgba(var(--canvas-rgb),.016) 79%),linear-gradient(0deg,rgba(var(--stone-rgb),.65),transparent 45%)}
 .hero-glow{position:absolute;top:-80px;left:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(var(--brass-rgb),.20),transparent 66%);pointer-events:none}
 .hero-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(var(--walnut-rgb),.21) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--walnut-rgb),.21) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,black,transparent 68%)}
@@ -87,17 +87,60 @@
 .step:before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--walnut)}
 .filter{border:1px solid var(--line);color:var(--text-muted);padding:10px 17px;border-radius:50px;font:700 10px Manrope;letter-spacing:.06em;transition:.2s}
 .filter:hover,.filter[aria-pressed=true]{background:var(--walnut);border-color:var(--walnut);color:var(--white)}
-.projects{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
-.project-card{position:relative;overflow:hidden;isolation:isolate;min-height:320px;background:var(--line);text-align:left;display:block;width:100%}
-.project-card:nth-child(3n+1){min-height:495px}
-.project-card img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0;transition:transform .65s}
-.project-card:hover img{transform:scale(1.055)}
-.project-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 15%,rgba(var(--ink-rgb),.72) 100%);z-index:0}
-.project-body{position:absolute;left:clamp(22px,3vw,36px);bottom:clamp(22px,3vw,36px);right:25px;z-index:1;color:var(--canvas)}
-.project-tag{letter-spacing:.17em;font:600 10px Manrope;color:var(--stone)}
-.project-body h3{font-size:25px;line-height:1.4;margin:8px 0}
-.project-body p{color:var(--canvas);font-size:13px}
-.placeholder{display:inline-block;margin-top:12px;padding:5px 9px;border:1px solid rgba(var(--canvas-rgb),.50);border-radius:3px;font-size:10px;color:var(--canvas)}
+.about-work{margin-left:0;margin-right:0}
+.about-work-images{display:grid;grid-template-columns:1fr 1.08fr;align-items:end;gap:16px}
+.about-work-photo{display:block;position:relative;width:100%;padding:0;border:0;background:var(--stone);overflow:hidden;text-align:left;border-radius:3px}
+.about-work-photo img{width:100%;height:auto;transition:transform .65s}
+.about-work-photo:hover img{transform:scale(1.025)}
+.about-photo-badge{position:absolute;left:12px;bottom:12px;background:rgba(var(--canvas-rgb),.92);color:var(--charcoal);padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:.12em}
+.about-work-kicker{font-size:9px;letter-spacing:.15em;margin-bottom:18px}
+.about-work-note{font-size:12px;line-height:1.9;color:var(--text-muted);margin:16px 0 0}
+.about-work-caption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:22px;margin-top:20px;border-top:1px solid var(--line)}
+.about-work-caption .eyebrow{font-size:9px;letter-spacing:.16em}
+.about-work-caption h3{font-size:19px;font-weight:600;margin:8px 0 0}
+.portfolio-text-link{display:inline-flex;align-items:center;gap:12px;padding:9px 0;border:0;border-bottom:1px solid var(--taupe);background:transparent;color:var(--walnut);font-size:12px;font-weight:600;text-align:left;transition:color .2s,border-color .2s}
+.portfolio-text-link:hover{color:var(--ink);border-color:var(--walnut)}
+.portfolio-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:48px}
+.portfolio-intro{flex-shrink:0;max-width:240px;padding-bottom:7px}
+.portfolio-intro p{font-size:12px;line-height:2;color:var(--text-muted);margin:16px 0 0}
+.portfolio-intro-line{display:block;width:42px;height:2px;background:var(--brass)}
+.portfolio-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:24px;margin-bottom:32px;border-bottom:1px solid var(--line)}
+.portfolio-count{font-size:11px;letter-spacing:.1em;color:var(--text-muted);white-space:nowrap;margin:0}
+.filter{display:inline-flex;align-items:center;gap:9px;font-family:Inter,'Noto Sans TC',sans-serif;font-size:12px;letter-spacing:0}
+.filter-count{font-family:Manrope,Inter,sans-serif;font-size:10px;opacity:.7}
+.projects{column-count:3;column-gap:28px}
+.project-item{break-inside:avoid;margin:0 0 32px}
+.project-card{display:block;width:100%;padding:0;border:0;background:transparent;color:var(--charcoal);text-align:left}
+.project-image{position:relative;display:block;overflow:hidden;border-radius:3px;background:var(--stone)}
+.project-image img{display:block;width:100%;height:auto;transition:transform .65s}
+.project-card:hover img{transform:scale(1.025)}
+.project-zoom{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(var(--canvas-rgb),.94);color:var(--walnut);font-size:18px;transition:background .25s,color .25s}
+.project-card:hover .project-zoom{background:var(--walnut);color:var(--canvas)}
+.project-body{display:block;padding-top:18px}
+.project-tag{display:block;font:600 9px Manrope,Inter,sans-serif;letter-spacing:.13em;color:var(--text-muted)}
+.project-title{display:block;font-size:18px;font-weight:600;line-height:1.6;margin-top:8px;transition:color .25s}
+.project-card:hover .project-title{color:var(--walnut)}
+.project-caption{display:block;font-size:12px;line-height:1.9;color:var(--text-muted);margin-top:5px}
+.modal-dialog.photo-dialog{width:min(1120px,100%);background:var(--canvas)}
+.gallery-stage{position:relative;display:grid;place-items:center;min-height:250px;background:var(--charcoal)}
+.gallery-photo{display:block;width:100%;height:clamp(300px,60vh,690px);object-fit:contain}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--mist);border-radius:50%;background:rgba(var(--canvas-rgb),.94);color:var(--charcoal);font-size:27px;line-height:1;transition:background .2s,color .2s}
+.gallery-arrow:hover{background:var(--brass);color:var(--ink)}
+.gallery-arrow:disabled{opacity:.35;cursor:default}
+.gallery-prev{left:16px}.gallery-next{right:16px}
+.gallery-details{padding:25px 32px 28px}
+.gallery-meta{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.gallery-meta .eyebrow{font-size:10px;letter-spacing:.15em}
+.gallery-position{font:600 11px Manrope,Inter,sans-serif;color:var(--text-muted);white-space:nowrap}
+.gallery-title{font-size:clamp(20px,2.5vw,28px);font-weight:600;line-height:1.5;margin:12px 0 8px}
+.gallery-caption{font-size:13px;line-height:1.9;color:var(--text-muted);margin:0}
+.gallery-thumbnails{display:flex;gap:9px;overflow-x:auto;padding:8px 8px 10px;margin-top:20px;scrollbar-width:thin;scrollbar-color:var(--taupe) var(--canvas)}
+.gallery-thumb{display:block;flex:0 0 72px;width:72px;height:56px;padding:3px;border:1px solid transparent;border-radius:3px;background:transparent;transition:border-color .2s}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;border-radius:1px}
+.gallery-thumb[aria-pressed=true]{border-color:var(--walnut)}
+.gallery-thumb:hover{border-color:var(--taupe)}
+@media(max-width:1023px){.projects{column-count:2}.portfolio-heading{align-items:flex-start;flex-direction:column;gap:24px}.portfolio-intro{max-width:none}.portfolio-intro p{margin-top:12px}}
+@media(max-width:640px){.projects{column-count:1}.project-item{margin-bottom:28px}.portfolio-heading{margin-bottom:32px}.portfolio-controls{align-items:flex-start;gap:16px}.filter{padding:10px 13px}.about-work-images{gap:12px}.about-work-kicker{font-size:8px;letter-spacing:.1em;margin-bottom:12px}.about-work-note{font-size:11px}.about-work-caption{gap:12px}.gallery-photo{height:44vh;min-height:235px}.gallery-details{padding:20px}.gallery-arrow{width:38px;height:38px}.gallery-prev{left:10px}.gallery-next{right:10px}.gallery-caption{font-size:12px}.gallery-meta .eyebrow{font-size:9px}.gallery-thumbnails{margin-top:16px}.photo-dialog .modal-close{width:38px;height:38px}}
 .article-card{border-top:1px solid var(--line);padding-top:20px;text-align:left;cursor:pointer}
 .article-card img{height:230px;width:100%;object-fit:cover;transition:transform .5s}
 .article-img{overflow:hidden}
@@ -126,8 +169,8 @@
 .typing-caret.done{opacity:0;animation:none}
 @keyframes blink{50%{opacity:0}}
 @media(min-width:900px){#menu-toggle{display:none}
-.projects .project-card:nth-child(even){min-height:390px}
-.projects .project-card:nth-child(4n+2){margin-top:80px}}
+
+}
 @media(max-width:899px){.desktop-links{display:none!important}
 .mobile-panel{position:fixed;inset:72px 0 auto;flex-direction:column;background:rgba(var(--canvas-rgb),.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:22px;gap:16px;box-shadow:0 16px 26px rgba(var(--charcoal-rgb),.07)}
 .mobile-panel a{font-size:15px;padding:10px}
@@ -142,8 +185,8 @@
 .hero-image:after{background:linear-gradient(90deg,rgba(var(--canvas-rgb),.93),rgba(var(--canvas-rgb),.72)),linear-gradient(0deg,var(--canvas),transparent)}
 .hero-kicker{font-size:9px}
 .section-space{padding:82px 0}
-.projects{grid-template-columns:1fr;gap:18px}
-.projects .project-card,.projects .project-card:nth-child(3n+1){min-height:385px}
+
+
 .solution-panel ul{grid-template-columns:1fr}
 .steps{grid-template-columns:repeat(2,1fr)}
 .feature-photo{height:240px}
@@ -197,10 +240,44 @@
 <body>
 <header id="header" class="topnav" role="banner"><div class="wrap h-[76px] flex items-center justify-between gap-6"><a href="#home" class="flex items-center gap-3" aria-label="雙囍國際，回首頁"><div class="brandmark en">W<span style="font-size:15px;margin-left:0">W</span></div><div><div class="font-bold tracking-[.17em] text-[14px]">雙囍國際</div><div class="en text-[9px] tracking-[.18em] text-muted">WINNWINN DESIGN</div></div></a><nav class="desktop-links flex gap-7 items-center" aria-label="主選單"><a class="navlink en text-[11px] font-semibold" href="#home">HOME</a><a class="navlink en text-[11px] font-semibold" href="#about">ABOUT</a><a class="navlink en text-[11px] font-semibold" href="#solutions">SOLUTIONS</a><a class="navlink en text-[11px] font-semibold" href="#projects">PROJECTS</a><a class="navlink en text-[11px] font-semibold" href="#insights">INSIGHTS</a><a class="navlink en text-[11px] font-semibold" href="#contact">CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline !min-h-[38px] !px-4 !text-[11px]" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></nav><button id="menu-toggle" aria-label="開啟選單" aria-controls="mobile-menu" aria-expanded="false" class="border border-line rounded-full h-11 w-11 flex items-center justify-center text-xl">☰</button></div><nav id="mobile-menu" class="mobile-panel" aria-label="手機選單"><a href="#home">首頁 HOME</a><a href="#about">關於雙囍 ABOUT</a><a href="#solutions">設計裝修解決方案 SOLUTIONS</a><a href="#projects">精選作品 PROJECTS</a><a href="#insights">專業洞察 INSIGHTS</a><a href="#contact">聯絡我們 CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 ↗</a></nav></header>
 <main>
-<section id="home" class="hero"><div class="hero-image" role="img" aria-label="明亮雅緻的現代室內設計空間示意攝影"></div><div class="hero-grid"></div><div class="hero-glow"></div><div class="wrap"><div class="max-w-3xl"><div class="hero-kicker mb-10"><span></span>WINNWINN DESIGN · SPACE & VALUE</div><p class="eyebrow mb-7">DESIGNING SPACES. CREATING VALUE.</p><h1 id="hero-title" aria-label="以設計創造價值，讓專業成就空間。"><span class="line">以設計創造價值，</span><span class="line">讓專業成就空間。</span></h1><p class="hero-desc mt-8">從空間策略到精準工程，雙囍國際以顧問式思維整合美學、機能與施工專業，成就更具競爭力的空間價值。</p><div class="flex flex-wrap gap-4 mt-10"><a href="#projects" class="btn btn-primary">探索精選作品 <span aria-hidden="true">↗</span></a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline" target="_blank" rel="noopener noreferrer">預約專業諮詢 <span aria-hidden="true">↗</span></a></div><p class="status mt-5">Status: Ready to Connect</p></div></div><a href="#about" class="scrollcue">SCROLL TO EXPLORE</a></section>
-<section id="about" class="section-space"><div class="wrap"><div class="grid lg:grid-cols-[.95fr_1.05fr] gap-14 xl:gap-24"><div class="reveal"><p class="eyebrow">01 / ABOUT WINNWINN DESIGN</p><h2 class="section-heading mt-6">專業築基・創新思維<br><span class="accent-text">重塑空間價值</span></h2><div class="line-deco"></div><p class="statement mb-8">讓設計不只是美學呈現，更成為提升品牌價值與營運效能的關鍵力量。</p><p class="section-copy">雙囍國際管理顧問室內裝修有限公司，以專業工程實力為基礎，結合創新設計與企業管理思維，致力提供兼具美學、機能、安全與商業效益的空間整合方案。我們相信，每一個空間都承載著不同的品牌故事，而好的設計，不僅能改變環境，更能創造長遠價值。</p><div class="mt-10 relative"><img class="about-photo" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=82" loading="lazy" alt="明亮溫潤的室內空間示意照片"><div class="absolute bottom-0 right-0 px-5 py-4 glass"><p class="eyebrow !text-[9px]">DESIGN × ENGINEERING × STRATEGY</p></div></div></div><div class="reveal"><div class="flex justify-between items-end mb-4"><h3 class="font-semibold text-[22px]">五大核心優勢</h3><span class="eyebrow">OUR STRENGTHS</span></div><div id="advantage-list"></div><div class="mt-10 p-6 border border-line bg-stone"><p class="eyebrow mb-3">PROFESSIONAL QUALIFICATIONS</p><p class="text-[13px] leading-8 text-muted">建築物室內裝修業登記：內營室業字第40E201532號<br>無障礙設施設備勘檢資質：內國署無障礙字第12072號</p><p class="text-[11px] text-muted mt-3">資格資料依品牌提供內容展示；正式上線前建議再次核對有效性。</p></div></div></div><div class="mt-20 pt-12 border-t border-line text-center reveal"><p class="font-semibold text-[clamp(19px,2.5vw,30px)] leading-relaxed">以專業實現承諾，以創新拓展可能，以設計創造價值。</p><p class="section-copy mt-3">讓每一次設計與施工，都成為實現品牌願景的起點。</p></div></div></section>
+<section id="home" class="hero"><div class="hero-image" role="img" aria-label="雙囍國際連鎖餐飲室內裝修實景，弧形卡座與用餐空間"></div><div class="hero-grid"></div><div class="hero-glow"></div><div class="wrap"><div class="max-w-3xl"><div class="hero-kicker mb-10"><span></span>WINNWINN DESIGN · SPACE & VALUE</div><p class="eyebrow mb-7">DESIGNING SPACES. CREATING VALUE.</p><h1 id="hero-title" aria-label="以設計創造價值，讓專業成就空間。"><span class="line">以設計創造價值，</span><span class="line">讓專業成就空間。</span></h1><p class="hero-desc mt-8">從空間策略到精準工程，雙囍國際以顧問式思維整合美學、機能與施工專業，成就更具競爭力的空間價值。</p><div class="flex flex-wrap gap-4 mt-10"><a href="#projects" class="btn btn-primary">探索精選作品 <span aria-hidden="true">↗</span></a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline" target="_blank" rel="noopener noreferrer">預約專業諮詢 <span aria-hidden="true">↗</span></a></div><p class="status mt-5">Status: Ready to Connect</p></div></div><a href="#about" class="scrollcue">SCROLL TO EXPLORE</a></section>
+<section id="about" class="section-space"><div class="wrap"><div class="grid lg:grid-cols-[.95fr_1.05fr] gap-14 xl:gap-24"><div class="reveal"><p class="eyebrow">01 / ABOUT WINNWINN DESIGN</p><h2 class="section-heading mt-6">專業築基・創新思維<br><span class="accent-text">重塑空間價值</span></h2><div class="line-deco"></div><p class="statement mb-8">讓設計不只是美學呈現，更成為提升品牌價值與營運效能的關鍵力量。</p><p class="section-copy">雙囍國際管理顧問室內裝修有限公司，以專業工程實力為基礎，結合創新設計與企業管理思維，致力提供兼具美學、機能、安全與商業效益的空間整合方案。我們相信，每一個空間都承載著不同的品牌故事，而好的設計，不僅能改變環境，更能創造長遠價值。</p><figure class="about-work mt-10">
+  <div class="about-work-images">
+    <button type="button" class="about-work-photo" data-feature-photo="dining-atrium" aria-label="放大查看連鎖餐飲案例：挑高與植栽">
+      <img src="作品集/連鎖餐飲商空/商空.png" width="381" height="677" loading="lazy" decoding="async" alt="雙囍國際餐飲裝修案例，挑高空間中的玻璃扶手樓梯、吊燈與植栽">
+      <span class="about-photo-badge en" aria-hidden="true">VIEW ↗</span>
+    </button>
+    <div class="about-work-side">
+      <p class="eyebrow about-work-kicker">BUILT WITH PURPOSE</p>
+      <button type="button" class="about-work-photo" data-feature-photo="dining-seating" aria-label="放大查看連鎖餐飲案例：弧形卡座與光影">
+        <img src="作品集/連鎖餐飲商空/商空 (2).png" width="906" height="680" loading="lazy" decoding="async" alt="雙囍國際餐飲裝修案例，木質弧形卡座、圓桌與格柵燈光天花">
+      </button>
+      <p class="about-work-note">從空間尺度到用餐細節，<br>讓品牌體驗落實於日常。</p>
+    </div>
+  </div>
+  <figcaption class="about-work-caption">
+    <div><p class="eyebrow">WINNWINN / 餐飲實績</p><h3>連鎖餐飲室內裝修</h3></div>
+    <button type="button" class="portfolio-text-link" data-feature-photo="dining-seating">觀看餐飲相簿 <span aria-hidden="true">↗</span></button>
+  </figcaption>
+</figure></div><div class="reveal"><div class="flex justify-between items-end mb-4"><h3 class="font-semibold text-[22px]">五大核心優勢</h3><span class="eyebrow">OUR STRENGTHS</span></div><div id="advantage-list"></div><div class="mt-10 p-6 border border-line bg-stone"><p class="eyebrow mb-3">PROFESSIONAL QUALIFICATIONS</p><p class="text-[13px] leading-8 text-muted">建築物室內裝修業登記：內營室業字第40E201532號<br>無障礙設施設備勘檢資質：內國署無障礙字第12072號</p><p class="text-[11px] text-muted mt-3">資格資料依品牌提供內容展示；正式上線前建議再次核對有效性。</p></div></div></div><div class="mt-20 pt-12 border-t border-line text-center reveal"><p class="font-semibold text-[clamp(19px,2.5vw,30px)] leading-relaxed">以專業實現承諾，以創新拓展可能，以設計創造價值。</p><p class="section-copy mt-3">讓每一次設計與施工，都成為實現品牌願景的起點。</p></div></div></section>
 <section id="solutions" class="section-space soft-bg"><div class="wrap"><div class="max-w-3xl mb-14 reveal"><p class="eyebrow">02 / INTEGRATED DESIGN & BUILD SOLUTIONS</p><h2 class="section-heading mt-6">設計裝修<span class="accent-text">解決方案</span></h2><h3 class="text-[clamp(18px,2vw,25px)] font-semibold mt-4">以空間為樞紐，賦能品牌商業競爭力</h3><p class="section-copy mt-5">空間不只是營運場所，更是品牌形象、顧客體驗與經營效率的關鍵。雙囍國際以「顧問式策略規劃 × 精準工程落實」為核心，整合設計美學、專業技術與商業管理思維，將品牌願景轉化為具實質價值的空間。</p></div><div class="grid lg:grid-cols-2 gap-6"><article class="solution-panel reveal"><img class="feature-photo" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="建築設計與工程圖面示意攝影"><p class="eyebrow mt-8">SOLUTION 01 / ENGINEERING</p><h3 class="text-[23px] font-semibold mt-3">專業技術整合</h3><p class="section-copy !text-[14px] mt-3">從法規、安全到施工品質，以跨專業整合降低工程風險、提高交付效能。</p><ul><li>機電系統整合</li><li>法規評估與審查</li><li>中央廚房排煙配置</li><li>施工品質管理</li><li>預算與進度管理</li><li>老屋翻新改善</li></ul></article><article class="solution-panel reveal"><img class="feature-photo" src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="高級商業空間氛圍示意攝影"><p class="eyebrow mt-8">SOLUTION 02 / STRATEGY</p><h3 class="text-[23px] font-semibold mt-3">商業策略規劃</h3><p class="section-copy !text-[14px] mt-3">兼顧品牌表達與實際營運需求，讓空間更有效率，也更有識別度。</p><ul><li>品牌空間定位</li><li>顧客體驗規劃</li><li>營運動線分析</li><li>設備機能配置</li><li>空間坪效優化</li><li>企業形象整合</li></ul></article></div><div class="mt-20 reveal"><p class="eyebrow">OUR SERVICES</p><h3 class="text-[27px] font-semibold mt-4 mb-8">主要服務領域</h3><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="services"></div></div><div class="mt-20 reveal"><p class="eyebrow">ONE-STOP SERVICE</p><h3 class="text-[27px] font-semibold mt-4 mb-9">從想法到落地，全程整合</h3><div class="steps" id="steps"></div></div><div class="mt-20 border-t border-line pt-14 reveal"><p class="text-[clamp(21px,3vw,38px)] font-semibold max-w-4xl leading-[1.6]">讓專業設計轉化為營運優勢，<br><span class="accent-text">讓精準工程成為品牌成長的堅實後盾。</span></p><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer" class="btn btn-outline mt-7">討論您的空間計畫 ↗</a></div></div></section>
-<section id="projects" class="section-space"><div class="wrap"><div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-11 reveal"><div><p class="eyebrow">03 / SELECTED PROJECTS</p><h2 class="section-heading mt-6">每個空間，<br>都是<span class="accent-text">品牌價值的延伸。</span></h2><p class="section-copy mt-5 max-w-2xl">從商業空間、連鎖餐飲到住宅與友善環境，以設計思維與專業工程，實踐空間的多重可能。</p></div><p class="text-xs text-muted border-l-2 border-accent pl-4 max-w-xs leading-7">以下為展示版面使用的示範圖片與案例名稱，並非雙囍國際已完工專案；正式上線請置換真實作品。</p></div><div id="filters" class="flex flex-wrap gap-2 mb-9" aria-label="作品類型篩選"></div><div id="project-grid" class="projects" aria-live="polite"></div></div></section>
+<section id="projects" class="section-space" aria-labelledby="projects-title">
+  <div class="wrap">
+    <div class="portfolio-heading reveal">
+      <div>
+        <p class="eyebrow">03 / SELECTED WORKS</p>
+        <h2 id="projects-title" class="section-heading mt-6">讓空間，<br>說出<span class="accent-text">品牌的故事。</span></h2>
+        <p class="section-copy mt-5 max-w-2xl">從連鎖餐飲、商業空間到辦公室裝修，以實際案例呈現整體空間、使用機能與工程細節。</p>
+      </div>
+      <div class="portfolio-intro"><span class="portfolio-intro-line" aria-hidden="true"></span><p>走進雙囍的空間作品。<br>點選照片，放大探索每一處細節。</p></div>
+    </div>
+    <div class="portfolio-controls">
+      <div id="filters" class="flex flex-wrap gap-2" role="group" aria-label="作品類型篩選"></div>
+      <p id="project-count" class="portfolio-count en" role="status" aria-live="polite"></p>
+    </div>
+    <div id="project-grid" class="projects" role="list" aria-label="雙囍國際作品照片"></div>
+  </div>
+</section>
 <section id="insights" class="section-space soft-bg"><div class="wrap"><div class="reveal mb-14"><p class="eyebrow">04 / KNOWLEDGE & INSIGHTS</p><h2 class="section-heading mt-6">以專業觀點，<br>探索空間<span class="accent-text">更多可能。</span></h2><p class="section-copy mt-5">從工程知識到空間趨勢，分享值得實踐的設計思考。以下文章為示範內容。</p></div><div id="articles" class="grid md:grid-cols-2 lg:grid-cols-4 gap-7"></div></div></section>
 <section id="core-solutions" class="section-space" aria-labelledby="core-solutions-title">
   <div class="wrap">
@@ -251,7 +328,7 @@
 </section>
 <section id="contact" class="section-space contact-zone"><div class="wrap"><div class="grid lg:grid-cols-[1.25fr_.75fr] gap-16 items-end"><div class="reveal"><p class="eyebrow">06 / LET'S CREATE SOMETHING MEANINGFUL</p><h2 class="section-heading mt-6">讓我們一起，<br>實現空間的<span class="accent-text">更多可能。</span></h2><p class="section-copy mt-8 max-w-2xl">無論是品牌展店、商業空間升級、住宅改造或專業工程整合，雙囍國際以設計思維與務實專業，成為值得信賴的合作夥伴。</p><div class="flex flex-wrap items-center gap-5 mt-10"><a class="btn btn-primary" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 ↗</a><span class="status">Status: Ready to Connect</span></div></div><div class="reveal border-t border-line pt-7"><p class="eyebrow mb-8">HOW WE WORK TOGETHER</p><div class="flex flex-col gap-6"><div class="flex gap-5 items-center"><span class="text-accent en text-xs">01</span><span class="font-semibold">探索需求</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">02</span><span class="font-semibold">專業溝通</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">03</span><span class="font-semibold">初步規劃</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">04</span><span class="font-semibold">展開合作</span></div></div><p class="mt-8 text-[12px] leading-7 text-muted">目前以 Google Calendar 預約頁面為正式諮詢入口。電話、信箱及地址待提供後即可補上。</p></div></div></div></section>
 </main>
-<footer class="site-footer border-t py-14"><div class="wrap"><div class="grid md:grid-cols-[1.5fr_1fr_auto] gap-10 items-start"><div><div class="text-xl font-bold tracking-wider">雙囍國際</div><p class="en text-xs text-muted tracking-[.17em] mt-1">WINNWINN DESIGN</p><p class="text-muted text-[13px] leading-8 mt-5">雙囍國際管理顧問室內裝修有限公司<br>以專業實現承諾，以創新拓展可能，以設計創造價值。</p></div><div><p class="eyebrow mb-6">QUICK LINKS</p><div class="grid grid-cols-2 gap-4"><a class="footer-link" href="#about">關於雙囍</a><a class="footer-link" href="#solutions">服務方案</a><a class="footer-link" href="#projects">精選作品</a><a class="footer-link" href="#insights">專業洞察</a><a class="footer-link" href="#contact">聯絡我們</a><a class="footer-link" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></div></div><a href="#home" class="backtop" aria-label="回到頂端">↑</a></div><div class="border-t border-line mt-12 pt-7 flex flex-wrap justify-between gap-3"><p class="en text-[11px] text-muted">Copyright © 2026 Winnwinn Design. All Rights Reserved.</p><p class="text-[11px] text-muted">品牌展示網站・部分影像與案例為示範內容</p></div></div></footer>
+<footer class="site-footer border-t py-14"><div class="wrap"><div class="grid md:grid-cols-[1.5fr_1fr_auto] gap-10 items-start"><div><div class="text-xl font-bold tracking-wider">雙囍國際</div><p class="en text-xs text-muted tracking-[.17em] mt-1">WINNWINN DESIGN</p><p class="text-muted text-[13px] leading-8 mt-5">雙囍國際管理顧問室內裝修有限公司<br>以專業實現承諾，以創新拓展可能，以設計創造價值。</p></div><div><p class="eyebrow mb-6">QUICK LINKS</p><div class="grid grid-cols-2 gap-4"><a class="footer-link" href="#about">關於雙囍</a><a class="footer-link" href="#solutions">服務方案</a><a class="footer-link" href="#projects">精選作品</a><a class="footer-link" href="#insights">專業洞察</a><a class="footer-link" href="#contact">聯絡我們</a><a class="footer-link" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></div></div><a href="#home" class="backtop" aria-label="回到頂端">↑</a></div><div class="border-t border-line mt-12 pt-7 flex flex-wrap justify-between gap-3"><p class="en text-[11px] text-muted">Copyright © 2026 Winnwinn Design. All Rights Reserved.</p><p class="text-[11px] text-muted">空間設計・室內裝修・工程整合</p></div></div></footer>
 <div id="modal" class="modal" role="presentation" aria-hidden="true"><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><button class="modal-close" id="modal-close" aria-label="關閉詳細內容">×</button><div id="modal-body"></div></div></div>
 <script>
 'use strict';
@@ -260,14 +337,19 @@ const SITE={brand:'雙囍國際',english:'Winnwinn Design',slogan:'以設計創�
 const advantages=[{title:'合法專業・品質信賴',desc:'具備建築物室內裝修業登記與無障礙設施設備勘檢專業資質，重視法規、安全與工程品質。'},{title:'商業空間・品牌價值升級',desc:'服務經驗涵蓋連鎖餐飲與商業場域，整合品牌形象、營運動線與設備配置。'},{title:'創新設計・友善永續',desc:'將無障礙、性別友善與多元共融思維融入商業、辦公與住宅空間。'},{title:'跨域整合・一站式服務',desc:'從空間定位、設計規劃、工程預算到施工管理及驗收交付，提供完整服務。'},{title:'以人為本・共創長遠價值',desc:'重視使用體驗、客戶需求與長期營運，成為值得信賴的設計裝修合作夥伴。'}];
 const services=[['商業空間','COMMERCIAL SPACE'],['餐飲與連鎖品牌','RESTAURANT & HOSPITALITY'],['住宅與老屋翻新','RESIDENTIAL DESIGN'],['無障礙與共融空間','ACCESSIBLE & INCLUSIVE'],['裝修與工程整合','RENOVATION & ENGINEERING'],['辦公空間','OFFICE & WORKPLACE']];
 const steps=['需求訪談','空間策略','設計規劃','預算與工程整合','施工管理','驗收交付'];
-// 以下圖片均為公開示意圖，非本公司真實完工案例。替換時請修改 image / title / description / details。
+// 作品照片依品牌提供的資料夾整理，標題描述照片內容；不額外推定案名、地點或年份。
 const projects=[
-{id:'p1',category:'COMMERCIAL',title:'精品零售空間概念',subtitle:'品牌識別與顧客動線',image:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=82',description:'以材質、層次與空間節奏突顯品牌性格，示範商業場域的體驗設計。',details:['品牌空間定位與動線規劃','材質與燈光氛圍提案','展示機能與營運需求整合']},
-{id:'p2',category:'RESTAURANT',title:'當代餐飲空間概念',subtitle:'機能效率與用餐體驗',image:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1100&q=82',description:'從前後場使用需求出發，兼顧氛圍、服務流線與空間機能。',details:['顧客及服務動線分析','餐飲氛圍與座位配置','機電與設備整合概念']},
-{id:'p3',category:'RESIDENTIAL',title:'現代住宅空間概念',subtitle:'光線、收納與生活尺度',image:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=82',description:'以自然光、舒適比例和溫潤材質構築安定的居住體驗。',details:['居住需求與機能討論','材質與家具搭配','照明與收納規劃']},
-{id:'p4',category:'ACCESSIBLE SPACE',title:'共融友善空間概念',subtitle:'安全與可及性並重',image:'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1100&q=82',description:'以使用者的便利性、清楚動線與舒適尺度為設計起點。',details:['通行與迴轉空間考量','友善設施與使用界面','相關法規與安全評估']},
-{id:'p5',category:'RENOVATION',title:'老屋更新空間概念',subtitle:'延續記憶，回應當代',image:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82',description:'以既有條件為基礎，重新整合採光、使用效率與細部工法。',details:['既有現況與工程檢視','生活機能重整','工序與預算評估']},
-{id:'p6',category:'COMMERCIAL',title:'企業辦公空間概念',subtitle:'專注、協作與品牌文化',image:'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1300&q=82',description:'融合企業形象與工作模式，營造更有彈性的辦公環境。',details:['部門協作與動線策略','公共與個人工作區規劃','材質、聲學與照明考量']}
+{id:'dining-seating',category:'RESTAURANT',label:'餐飲空間',title:'弧形卡座與光影',subtitle:'用餐空間 · 木質與織紋',image:'作品集/連鎖餐飲商空/商空 (2).png',width:906,height:680,alt:'餐飲空間的木質弧形卡座、圓桌與格柵燈光天花',description:'弧形卡座、木質圓桌與格柵燈光，共同構成餐飲空間的用餐氛圍。'},
+{id:'office-open',category:'OFFICE',label:'辦公空間',title:'開放辦公與交流',subtitle:'辦公室裝修 · 共享工作區',image:'作品集/辦公室裝修/商空 (11).png',width:1188,height:665,alt:'開放辦公空間中的長桌、座椅、線型照明與交流區',description:'長桌工作區、共享座席與線型照明，呈現辦公空間的整體配置。'},
+{id:'dining-atrium',category:'RESTAURANT',label:'餐飲空間',title:'挑高、植栽與空間層次',subtitle:'餐飲室內裝修 · 立體動線',image:'作品集/連鎖餐飲商空/商空.png',width:381,height:677,alt:'挑高餐飲空間中的玻璃扶手樓梯、吊燈與室內植栽',description:'透過挑高、玻璃扶手樓梯、吊燈與植栽，串連上下樓層的空間體驗。'},
+{id:'commercial-lounge',category:'COMMERCIAL',label:'商業空間',title:'溫潤材質與休憩情境',subtitle:'空間實景 · 光線與材質',image:'作品集/連鎖餐飲商空/商空 (8).png',width:1195,height:667,alt:'木地板、沙發、圓形茶几與落地窗構成的休憩空間',description:'木地板、柔和織品與自然採光，呈現溫潤而舒適的休憩情境。'},
+{id:'dining-layout',category:'RESTAURANT',label:'餐飲空間',title:'用餐配置與服務動線',subtitle:'餐飲室內裝修 · 桌席與機能',image:'作品集/連鎖餐飲商空/商空 (4).png',width:893,height:672,alt:'餐廳的桌席、吊燈、中央走道及廚房服務視窗',description:'從桌席、中央走道到廚房服務視窗，呈現餐飲空間的機能配置。'},
+{id:'dining-counter',category:'RESTAURANT',label:'餐飲空間',title:'吧台與開放廚房',subtitle:'餐飲室內裝修 · 前後場界面',image:'作品集/連鎖餐飲商空/商空 (6).png',width:502,height:677,alt:'木質吧台、暖簾與開放廚房的餐飲空間細節',description:'以木質吧台串接座席與開放廚房，呈現餐飲服務界面的細節。'},
+{id:'office-meeting',category:'OFFICE',label:'辦公空間',title:'明亮會議與協作空間',subtitle:'辦公室裝修 · 玻璃隔間',image:'作品集/辦公室裝修/商空 (10).png',width:1012,height:665,alt:'設有會議桌、白板與玻璃隔間的明亮會議空間',description:'會議桌、白板與透光玻璃隔間，構成明亮的討論與協作空間。'},
+{id:'commercial-storage',category:'COMMERCIAL',label:'商業空間',title:'木作收納與立面整合',subtitle:'空間實景 · 機能與細節',image:'作品集/連鎖餐飲商空/商空 (9).png',width:897,height:665,alt:'整合電視牆、展示櫃、收納與門片的木作立面',description:'木作櫃體、電視牆與門片在同一立面中整合，呈現收納與材質細節。'},
+{id:'dining-front',category:'RESTAURANT',label:'餐飲空間',title:'餐飲櫃位與點餐界面',subtitle:'餐飲室內裝修 · 品牌門面',image:'作品集/連鎖餐飲商空/商空 (7).png',width:918,height:678,alt:'以磚牆、招牌與點餐檯面構成的餐飲櫃位',description:'從磚牆、招牌到點餐檯面，呈現餐飲櫃位與顧客接觸的第一印象。'},
+{id:'detail-joinery',category:'ENGINEERING',label:'工程細節',title:'木作櫃檯與機能整合',subtitle:'工程紀錄 · 櫃體與收納',image:'作品集/連鎖餐飲商空/商空 (3).png',width:460,height:673,alt:'施工整理階段的木作櫃檯、開放收納與線材配置',description:'記錄木作櫃檯、收納空間與線材配置的工程細節。'},
+{id:'detail-storefront',category:'ENGINEERING',label:'工程細節',title:'店面裝修現場紀錄',subtitle:'工程紀錄 · 門面與室內配置',image:'作品集/連鎖餐飲商空/商空 (5).png',width:898,height:677,alt:'餐飲店面裝修現場中的招牌、室內桌席與施工整理作業',description:'記錄店面門面、室內配置與現場整理作業，呈現空間落地的過程。'}
 ];
 const articles=[
 {id:'a1',category:'SPACE STRATEGY',title:'商業空間如何兼顧品牌體驗與營運效率？',image:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80',summary:'好的商業設計，從理解營運流程與顧客旅程開始。',content:['在商業空間規劃初期，應先確認目標客群、服務流程與設備需求，而非只追求視覺吸引力。','動線的清楚程度、展示位置與後場作業效率，會直接影響空間的使用品質。設計與工程團隊及早協作，能減少後續調整成本。']},
@@ -279,19 +361,103 @@ const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>Array.from(p.quer
 $('#advantage-list').innerHTML=advantages.map((a,i)=>`<div class="advantage"><span class="label-no">0${i+1}</span><div><h3>${a.title}</h3><p>${a.desc}</p></div></div>`).join('');
 $('#services').innerHTML=services.map((s,i)=>`<div class="service-chip"><span class="text-[11px] text-accent en">0${i+1}</span><h4 class="mt-3 font-semibold text-[17px]">${s[0]}</h4><small class="en">${s[1]}</small></div>`).join('');
 $('#steps').innerHTML=steps.map((s,i)=>`<div class="step"><span class="en text-accent text-[12px] font-semibold">0${i+1}</span><p class="mt-3 text-[13px] font-semibold">${s}</p></div>`).join('');
-const categories=[['ALL PROJECTS','ALL'],['COMMERCIAL','COMMERCIAL'],['RESTAURANT','RESTAURANT'],['RESIDENTIAL','RESIDENTIAL'],['ACCESSIBLE SPACE','ACCESSIBLE SPACE'],['RENOVATION','RENOVATION']];
+const categories=[['全部作品','ALL'],['餐飲空間','RESTAURANT'],['商業空間','COMMERCIAL'],['辦公空間','OFFICE'],['工程細節','ENGINEERING']];
 let selected='ALL';
-function renderFilters(){ $('#filters').innerHTML=categories.map(([label,key])=>`<button class="filter" type="button" data-filter="${key}" aria-pressed="${selected===key}">${label}</button>`).join(''); }
-function renderProjects(){let rows=projects.filter(p=>selected==='ALL'||p.category===selected);$('#project-grid').innerHTML=rows.map(p=>`<button type="button" class="project-card" data-project="${p.id}" aria-label="查看示範案例：${p.title}"><img src="${p.image}" loading="lazy" alt="${p.title}的空間示意圖片" onerror="this.style.opacity='0'"><div class="project-body"><span class="project-tag">${p.category} / VIEW PROJECT ↗</span><h3>${p.title}</h3><p>${p.subtitle}</p><span class="placeholder">示範案例・非實際作品</span></div></button>`).join('') }
+function renderFilters(){
+  $('#filters').innerHTML=categories.map(([label,key])=>{
+    const count=projects.filter(p=>key==='ALL'||p.category===key).length;
+    return `<button class="filter" type="button" data-filter="${key}" aria-pressed="${selected===key}" aria-label="${label}，${count} 張照片">${label}<span class="filter-count" aria-hidden="true">${String(count).padStart(2,'0')}</span></button>`;
+  }).join('');
+}
+function renderProjects(){
+  const rows=projects.filter(p=>selected==='ALL'||p.category===selected);
+  $('#project-count').textContent=`${String(rows.length).padStart(2,'0')} 張空間影像`;
+  $('#project-grid').innerHTML=rows.map(p=>`<article class="project-item" role="listitem"><button type="button" class="project-card" data-project="${p.id}" aria-label="放大查看${p.label}：${p.title}"><span class="project-image"><img src="${p.image}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async" alt="${p.alt}"><span class="project-zoom" aria-hidden="true">↗</span></span><span class="project-body"><span class="project-tag">${p.category} / ${p.label}</span><span class="project-title">${p.title}</span><span class="project-caption">${p.subtitle}</span></span></button></article>`).join('');
+}
 renderFilters();renderProjects();
-$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;selected=b.dataset.filter;renderFilters();renderProjects()});
-$('#project-grid').addEventListener('click',e=>{const b=e.target.closest('[data-project]');if(!b)return;const p=projects.find(x=>x.id===b.dataset.project);if(p)showModal({title:p.title,category:p.category,image:p.image,tag:'示範專案・僅供展示',paragraphs:[p.description],bullets:p.details})});
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-filter]');if(!b)return;selected=b.dataset.filter;renderFilters();renderProjects();$(`[data-filter="${selected}"]`).focus({preventScroll:true})});
+$('#project-grid').addEventListener('click',e=>{const b=e.target.closest('[data-project]');if(b)openProjectGallery(b.dataset.project,selected)});
+$$('[data-feature-photo]').forEach(button=>button.addEventListener('click',()=>openProjectGallery(button.dataset.featurePhoto,'RESTAURANT')));
 $('#articles').innerHTML=articles.map(a=>`<button class="article-card reveal" type="button" data-article="${a.id}" aria-label="閱讀示範文章：${a.title}"><div class="article-img"><img src="${a.image}" loading="lazy" alt="${a.title}主題示意圖片" onerror="this.style.opacity='0'"></div><p class="eyebrow !text-[10px] mt-6">${a.category} / 示範文章</p><h3>${a.title}</h3><p class="mt-3">${a.summary}</p><span class="en text-xs text-accent font-semibold inline-block mt-5">READ ARTICLE ↗</span></button>`).join('');
 $('#articles').addEventListener('click',e=>{const b=e.target.closest('[data-article]');if(!b)return;const a=articles.find(x=>x.id===b.dataset.article);if(a)showModal({title:a.title,category:a.category,image:a.image,tag:'示範知識文章',paragraphs:a.content})});
 let lastFocus=null;
-function showModal(data){lastFocus=document.activeElement;const makeP=data.paragraphs.map(p=>`<p>${p}</p>`).join('');const bullets=data.bullets?`<h3 class="font-semibold mt-8 mb-2">內容焦點</h3><ul>${data.bullets.map(x=>`<li>${x}</li>`).join('')}</ul>`:'';$('#modal-body').innerHTML=`<img class="modal-image" src="${data.image}" alt="${data.title}示意圖片" onerror="this.style.opacity='0'"><div class="modal-content"><p class="eyebrow">${data.category} / ${data.tag}</p><h2 id="modal-title" class="text-[clamp(23px,3vw,36px)] font-semibold mt-5 mb-6">${data.title}</h2>${makeP}${bullets}<p class="text-xs border-t pt-5 mt-8 border-line">本內容為網站展示用示範資料，不代表實際完工工程或正式發表紀錄。</p></div>`;$('#modal').classList.add('open');$('#modal').setAttribute('aria-hidden','false');document.body.classList.add('modal-open');$('#modal-close').focus()}
-function closeModal(){if(!$('#modal').classList.contains('open'))return;$('#modal').classList.remove('open');$('#modal').setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');lastFocus?.focus()}
-$('#modal-close').addEventListener('click',closeModal);$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))closeModal()});document.addEventListener('keydown',e=>{if(!$('#modal').classList.contains('open'))return;if(e.key==='Escape')closeModal();if(e.key==='Tab'){const f=$$('button,[href],[tabindex]:not([tabindex="-1"])',$('#modal')).filter(x=>!x.disabled);if(!f.length)return;const first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+let activeGallery=null;
+function revealModal(){
+  $('#modal').classList.add('open');
+  $('#modal').setAttribute('aria-hidden','false');
+  document.body.classList.add('modal-open');
+  $('.modal-dialog').scrollTop=0;
+  $('#modal-close').focus({preventScroll:true});
+}
+function showModal(data){
+  lastFocus=document.activeElement;
+  activeGallery=null;
+  $('.modal-dialog').classList.remove('photo-dialog');
+  const makeP=data.paragraphs.map(p=>`<p>${p}</p>`).join('');
+  const bullets=data.bullets?`<h3 class="font-semibold mt-8 mb-2">內容焦點</h3><ul>${data.bullets.map(x=>`<li>${x}</li>`).join('')}</ul>`:'';
+  $('#modal-body').innerHTML=`<img class="modal-image" src="${data.image}" alt="${data.title}示意圖片" onerror="this.style.opacity='0'"><div class="modal-content"><p class="eyebrow">${data.category} / ${data.tag}</p><h2 id="modal-title" class="text-[clamp(23px,3vw,36px)] font-semibold mt-5 mb-6">${data.title}</h2>${makeP}${bullets}<p class="text-xs border-t pt-5 mt-8 border-line">本內容為網站展示用示範資料，不代表實際完工工程或正式發表紀錄。</p></div>`;
+  revealModal();
+}
+function openProjectGallery(id,scope='ALL'){
+  const items=projects.filter(p=>scope==='ALL'||p.category===scope);
+  const index=items.findIndex(p=>p.id===id);
+  if(index<0)return;
+  lastFocus=document.activeElement;
+  activeGallery={items,index};
+  $('.modal-dialog').classList.add('photo-dialog');
+  $('#modal-body').innerHTML=`<div class="gallery-stage"><img id="gallery-photo" class="gallery-photo" decoding="async" alt="" aria-describedby="gallery-caption"><button class="gallery-arrow gallery-prev" type="button" data-gallery-step="-1" aria-label="上一張作品照片">‹</button><button class="gallery-arrow gallery-next" type="button" data-gallery-step="1" aria-label="下一張作品照片">›</button></div><div class="gallery-details"><div class="gallery-meta"><p id="gallery-category" class="eyebrow"></p><p id="gallery-position" class="gallery-position" role="status" aria-live="polite" aria-atomic="true"></p></div><h2 id="modal-title" class="gallery-title"></h2><p id="gallery-caption" class="gallery-caption"></p><div class="gallery-thumbnails" role="group" aria-label="作品照片縮圖">${items.map((p,i)=>`<button type="button" class="gallery-thumb" data-gallery-index="${i}" aria-label="查看第 ${i+1} 張：${p.title}" aria-pressed="false"><img src="${p.image}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async" alt=""></button>`).join('')}</div></div>`;
+  updateGalleryPhoto();
+  revealModal();
+}
+function updateGalleryPhoto(){
+  if(!activeGallery)return;
+  const {items,index}=activeGallery,p=items[index];
+  const image=$('#gallery-photo');
+  image.src=p.image;image.alt=p.alt;image.width=p.width;image.height=p.height;
+  $('#gallery-category').textContent=`WINNWINN DESIGN / ${p.label}`;
+  $('#modal-title').textContent=p.title;
+  $('#gallery-caption').textContent=p.description;
+  $('#gallery-position').textContent=`${String(index+1).padStart(2,'0')} / ${String(items.length).padStart(2,'0')} 張`;
+  $$('.gallery-arrow').forEach(button=>button.disabled=items.length<2);
+  $$('.gallery-thumb').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+  requestAnimationFrame(()=>{
+    const strip=$('.gallery-thumbnails'),thumb=$('.gallery-thumb[aria-pressed="true"]');
+    if(strip&&thumb)strip.scrollTo({left:thumb.offsetLeft-strip.offsetLeft-(strip.clientWidth-thumb.offsetWidth)/2,behavior:'instant'});
+  });
+}
+function moveGallery(step){
+  if(!activeGallery)return;
+  activeGallery.index=(activeGallery.index+step+activeGallery.items.length)%activeGallery.items.length;
+  updateGalleryPhoto();
+}
+$('#modal-body').addEventListener('click',e=>{
+  if(!activeGallery)return;
+  const step=e.target.closest('[data-gallery-step]');
+  if(step){moveGallery(Number(step.dataset.galleryStep));return}
+  const thumb=e.target.closest('[data-gallery-index]');
+  if(thumb){activeGallery.index=Number(thumb.dataset.galleryIndex);updateGalleryPhoto()}
+});
+function closeModal(){
+  if(!$('#modal').classList.contains('open'))return;
+  $('#modal').classList.remove('open');$('#modal').setAttribute('aria-hidden','true');
+  document.body.classList.remove('modal-open');
+  activeGallery=null;
+  lastFocus?.focus({preventScroll:true});
+}
+$('#modal-close').addEventListener('click',closeModal);
+$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))closeModal()});
+document.addEventListener('keydown',e=>{
+  if(!$('#modal').classList.contains('open'))return;
+  if(e.key==='Escape'){e.preventDefault();closeModal();return}
+  if(activeGallery&&(e.key==='ArrowLeft'||e.key==='ArrowRight')){e.preventDefault();moveGallery(e.key==='ArrowLeft'?-1:1);return}
+  if(e.key==='Tab'){
+    const f=$$('button,[href],[tabindex]:not([tabindex="-1"])',$('#modal')).filter(x=>!x.disabled);
+    if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  }
+});
 const menu=$('#mobile-menu'),toggle=$('#menu-toggle');function setMenu(open){menu.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'關閉選單':'開啟選單');toggle.textContent=open?'×':'☰'}toggle.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));$$('a',menu).forEach(a=>a.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});window.addEventListener('resize',()=>{if(innerWidth>899)setMenu(false)});
 function navUpdate(){ $('#header').classList.toggle('scrolled',scrollY>35);let id='home';$$('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<=150)id=s.id});$$('.navlink').forEach(a=>{const active=a.getAttribute('href')==='#'+id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}window.addEventListener('scroll',navUpdate,{passive:true});navUpdate();
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
