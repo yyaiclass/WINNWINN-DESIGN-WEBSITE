@@ -8,10 +8,12 @@
 <meta property="og:type" content="website"><meta property="og:title" content="雙囍國際 Winnwinn Design｜以設計創造價值，讓專業成就空間"><meta property="og:description" content="顧問式策略規劃 × 精準工程落實，從空間策略到工程交付的一站式設計裝修服務。"><meta property="og:locale" content="zh_TW">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme:light;
+  --font-body:Inter,'Noto Sans TC',sans-serif;
+  --font-display:'Noto Serif TC','Noto Sans TC',serif;
   --canvas:#F6F3EE;
   --stone:#DED6CA;
   --taupe:#B6A996;
@@ -32,7 +34,7 @@
   --brass-rgb:178,143,96;
   --sage-rgb:138,146,129;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;font-family:Inter,'Noto Sans TC',sans-serif;color:var(--charcoal);background:var(--canvas);-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--walnut);outline-offset:4px}button{cursor:pointer}img{display:block;max-width:100%}section{scroll-margin-top:0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}body{margin:0;font-family:var(--font-body);color:var(--charcoal);background:var(--canvas);-webkit-font-smoothing:antialiased}body.modal-open{overflow:hidden}button,a{ -webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--walnut);outline-offset:4px}button{cursor:pointer}img{display:block;max-width:100%}section{scroll-margin-top:0}
 .wrap{max-width:1280px;margin:auto;padding:0 clamp(22px,5vw,80px)}
 .en{font-family:Manrope,Inter,sans-serif}
 .eyebrow{letter-spacing:.23em;font:700 11px Manrope,Inter,sans-serif;color:var(--text-muted);text-transform:uppercase}
@@ -48,22 +50,47 @@
 .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(var(--walnut-rgb),.16)}
 .btn-primary{color:var(--white);background:var(--walnut);border-color:var(--walnut)}
 .btn-outline{color:var(--walnut);background:rgba(var(--canvas-rgb),.90);border-color:var(--walnut)}
-.hero{position:relative;min-height:810px;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--canvas)}
-.hero-image{position:absolute;inset:0 0 0 39%;background-image:url('作品集/連鎖餐飲商空/商空 (2).png');background-position:center;background-size:cover}
-.hero-image:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--canvas) 0%,rgba(var(--canvas-rgb),.94) 10%,rgba(var(--canvas-rgb),.50) 35%,rgba(var(--canvas-rgb),.016) 79%),linear-gradient(0deg,rgba(var(--stone-rgb),.65),transparent 45%)}
-.hero-glow{position:absolute;top:-80px;left:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(var(--brass-rgb),.20),transparent 66%);pointer-events:none}
-.hero-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(var(--walnut-rgb),.21) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--walnut-rgb),.21) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,black,transparent 68%)}
-.hero .wrap{position:relative;z-index:1;width:100%;padding-top:100px;padding-bottom:85px}
-.hero h1{font-size:clamp(41px,5.2vw,78px);line-height:1.35;letter-spacing:-.065em;font-weight:700;max-width:780px}
+.hero{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--charcoal);color:var(--canvas)}
+.hero-media,.hero-poster,.hero-video,.hero-shade{position:absolute;inset:0;pointer-events:none}
+.hero-media{z-index:-2;overflow:hidden}
+.hero-poster{background-image:url('作品集/連鎖餐飲商空/商空 (2).png');background-position:center;background-size:cover}
+.hero-video{overflow:hidden;opacity:0;transition:opacity 1s ease}
+.hero.video-ready .hero-video{opacity:1}
+.hero-video iframe{position:absolute;top:50%;left:50%;width:var(--hero-video-width,177.78vh);height:var(--hero-video-height,100vh);max-width:none;border:0;transform:translate(-50%,-50%);pointer-events:none}
+.hero-shade{z-index:-1;background:linear-gradient(90deg,rgba(var(--ink-rgb),.88) 0%,rgba(var(--ink-rgb),.78) 48%,rgba(var(--ink-rgb),.50) 100%),linear-gradient(0deg,rgba(var(--ink-rgb),.78),transparent 55%)}
+.hero-content{position:relative;width:100%;padding-top:138px;padding-bottom:150px}
+.hero-copy{max-width:850px}
+.hero h1{font-family:var(--font-display);font-size:clamp(42px,5.2vw,76px);font-weight:600;line-height:1.48;letter-spacing:-.025em;margin:0;color:var(--canvas);text-shadow:0 3px 28px rgba(var(--ink-rgb),.32);text-wrap:balance}
 .hero h1 .line{display:block}
-.hero h1 .line:last-child{color:var(--walnut)}
-.hero-desc{font-size:clamp(14px,1.25vw,17px);line-height:2;color:var(--text-muted);max-width:565px}
-.hero-kicker{display:inline-flex;gap:14px;align-items:center;border:1px solid var(--stone);background:rgba(var(--canvas-rgb),.74);padding:9px 16px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--walnut)}
-.hero-kicker span{width:6px;height:6px;background:var(--sage);border-radius:50%}
-.scrollcue{position:absolute;bottom:34px;left:max(5vw,25px);font:700 11px Manrope;letter-spacing:.25em;color:var(--text-muted);display:flex;align-items:center;gap:16px}
-.scrollcue:after{content:'';display:block;width:60px;height:1px;background:var(--walnut)}
+.hero h1 .line:last-child{color:var(--canvas)}
+.hero .eyebrow{color:rgba(var(--canvas-rgb),.9)}
+.hero-eyebrow{margin:0 0 22px;font-size:10px;letter-spacing:.22em}
+.hero-desc{font-size:clamp(15px,1.18vw,17px);font-weight:400;line-height:2;letter-spacing:.02em;color:var(--canvas);max-width:565px;margin:26px 0 0;text-shadow:0 2px 15px rgba(var(--ink-rgb),.4)}
+.hero-kicker{display:inline-flex;gap:12px;align-items:center;border:1px solid rgba(var(--canvas-rgb),.35);background:rgba(var(--charcoal-rgb),.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:9px 15px;border-radius:99px;font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--canvas);margin:0 0 28px}
+.hero-kicker span{width:6px;height:6px;background:var(--brass);border-radius:50%;flex-shrink:0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero .btn-primary{background:var(--canvas);border-color:var(--canvas);color:var(--charcoal)}
+.hero .btn-primary:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
+.hero .btn-outline{background:rgba(var(--charcoal-rgb),.24);border-color:rgba(var(--canvas-rgb),.65);color:var(--canvas);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero .btn-outline:hover{background:var(--canvas);border-color:var(--canvas);color:var(--charcoal)}
+.hero-note{font-size:11px;line-height:1.8;letter-spacing:.1em;color:var(--canvas);margin:18px 0 0}
+.hero-footer{position:absolute;right:0;bottom:30px;left:0;z-index:2}
+.hero-footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.scrollcue{font:600 10px Manrope,Inter,sans-serif;letter-spacing:.18em;color:var(--canvas);display:flex;align-items:center;gap:16px;text-shadow:0 1px 10px rgba(var(--ink-rgb),.4)}
+.scrollcue:after{content:'';display:block;width:48px;height:1px;background:rgba(var(--canvas-rgb),.65)}
+.hero-video-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:12px;color:var(--canvas)}
+.hero-video-status{font-size:11px;line-height:1.8;text-shadow:0 1px 10px rgba(var(--ink-rgb),.5)}
+.hero-video-toggle{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:42px;padding:9px 15px;border:1px solid rgba(var(--canvas-rgb),.5);border-radius:99px;background:rgba(var(--charcoal-rgb),.42);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--canvas);font-family:var(--font-body);font-size:12px;font-weight:500;transition:background .2s,color .2s}
+.hero-video-toggle:hover{background:var(--canvas);color:var(--charcoal)}
+.hero-video-toggle:disabled{cursor:wait;opacity:.8}
+.hero-video-symbol{display:inline-block;min-width:12px;font:600 12px Inter,sans-serif;line-height:1}
+.hero-video-source{color:var(--canvas);font-size:11px;border-bottom:1px solid rgba(var(--canvas-rgb),.6);padding:4px 0}
+.hero-video-source[hidden]{display:none}
+.hero a:focus-visible,.hero button:focus-visible{outline-color:var(--canvas)}
+@media(max-width:899px){.hero h1{font-size:clamp(40px,6.8vw,62px)}.hero-shade{background:linear-gradient(90deg,rgba(var(--ink-rgb),.88),rgba(var(--ink-rgb),.72)),linear-gradient(0deg,rgba(var(--ink-rgb),.78),transparent 60%)}}
+@media(max-width:640px){.hero-content{padding-top:126px;padding-bottom:155px}.hero h1{font-size:clamp(32px,9.8vw,44px);line-height:1.55;letter-spacing:-.035em}.hero-kicker{font-size:10px;letter-spacing:.08em;padding:8px 12px;margin-bottom:24px}.hero-eyebrow{font-size:10px;letter-spacing:.15em;margin-bottom:18px}.hero-desc{font-size:14px;line-height:2;max-width:100%;margin-top:22px}.hero-actions{gap:12px;margin-top:28px}.hero-note{font-size:11px;letter-spacing:.06em}.hero-footer{bottom:24px}.hero-footer .wrap{justify-content:flex-end}.hero-video-controls{gap:10px}.hero-video-status{font-size:11px}.hero-video-toggle{font-size:12px;min-height:42px}.hero-shade{background:linear-gradient(0deg,rgba(var(--ink-rgb),.90),rgba(var(--ink-rgb),.78) 62%,rgba(var(--ink-rgb),.76))}}
 .section-space{padding:clamp(85px,10vw,150px) 0}
-.section-heading{font-size:clamp(31px,3.5vw,54px);line-height:1.35;letter-spacing:-.04em;font-weight:650}
+.section-heading{font-family:var(--font-display);font-size:clamp(31px,3.5vw,54px);line-height:1.5;letter-spacing:-.025em;font-weight:600;text-wrap:balance}
 .section-copy{font-size:15px;line-height:2.05;color:var(--text-muted)}
 .line-deco{width:48px;height:2px;background:var(--brass);margin:22px 0 27px}
 .label-no{font-family:Manrope;font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--text-muted)}
@@ -93,10 +120,10 @@
 .about-work-photo img{width:100%;height:auto;transition:transform .65s}
 .about-work-photo:hover img{transform:scale(1.025)}
 .about-photo-badge{position:absolute;left:12px;bottom:12px;background:rgba(var(--canvas-rgb),.92);color:var(--charcoal);padding:7px 10px;font-size:10px;font-weight:700;letter-spacing:.12em}
-.about-work-kicker{font-size:9px;letter-spacing:.15em;margin-bottom:18px}
+.about-work-kicker{font-size:10px;letter-spacing:.15em;margin-bottom:18px}
 .about-work-note{font-size:12px;line-height:1.9;color:var(--text-muted);margin:16px 0 0}
 .about-work-caption{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:22px;margin-top:20px;border-top:1px solid var(--line)}
-.about-work-caption .eyebrow{font-size:9px;letter-spacing:.16em}
+.about-work-caption .eyebrow{font-size:10px;letter-spacing:.16em}
 .about-work-caption h3{font-size:19px;font-weight:600;margin:8px 0 0}
 .portfolio-text-link{display:inline-flex;align-items:center;gap:12px;padding:9px 0;border:0;border-bottom:1px solid var(--taupe);background:transparent;color:var(--walnut);font-size:12px;font-weight:600;text-align:left;transition:color .2s,border-color .2s}
 .portfolio-text-link:hover{color:var(--ink);border-color:var(--walnut)}
@@ -117,7 +144,7 @@
 .project-zoom{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(var(--canvas-rgb),.94);color:var(--walnut);font-size:18px;transition:background .25s,color .25s}
 .project-card:hover .project-zoom{background:var(--walnut);color:var(--canvas)}
 .project-body{display:block;padding-top:18px}
-.project-tag{display:block;font:600 9px Manrope,Inter,sans-serif;letter-spacing:.13em;color:var(--text-muted)}
+.project-tag{display:block;font:600 10px Manrope,Inter,sans-serif;letter-spacing:.13em;color:var(--text-muted)}
 .project-title{display:block;font-size:18px;font-weight:600;line-height:1.6;margin-top:8px;transition:color .25s}
 .project-card:hover .project-title{color:var(--walnut)}
 .project-caption{display:block;font-size:12px;line-height:1.9;color:var(--text-muted);margin-top:5px}
@@ -140,7 +167,7 @@
 .gallery-thumb[aria-pressed=true]{border-color:var(--walnut)}
 .gallery-thumb:hover{border-color:var(--taupe)}
 @media(max-width:1023px){.projects{column-count:2}.portfolio-heading{align-items:flex-start;flex-direction:column;gap:24px}.portfolio-intro{max-width:none}.portfolio-intro p{margin-top:12px}}
-@media(max-width:640px){.projects{column-count:1}.project-item{margin-bottom:28px}.portfolio-heading{margin-bottom:32px}.portfolio-controls{align-items:flex-start;gap:16px}.filter{padding:10px 13px}.about-work-images{gap:12px}.about-work-kicker{font-size:8px;letter-spacing:.1em;margin-bottom:12px}.about-work-note{font-size:11px}.about-work-caption{gap:12px}.gallery-photo{height:44vh;min-height:235px}.gallery-details{padding:20px}.gallery-arrow{width:38px;height:38px}.gallery-prev{left:10px}.gallery-next{right:10px}.gallery-caption{font-size:12px}.gallery-meta .eyebrow{font-size:9px}.gallery-thumbnails{margin-top:16px}.photo-dialog .modal-close{width:38px;height:38px}}
+@media(max-width:640px){.projects{column-count:1}.project-item{margin-bottom:28px}.portfolio-heading{margin-bottom:32px}.portfolio-controls{align-items:flex-start;gap:16px}.filter{padding:10px 13px}.about-work-images{gap:12px}.about-work-kicker{font-size:10px;letter-spacing:.1em;margin-bottom:12px}.about-work-note{font-size:11px}.about-work-caption{gap:12px}.gallery-photo{height:44vh;min-height:235px}.gallery-details{padding:20px}.gallery-arrow{width:38px;height:38px}.gallery-prev{left:10px}.gallery-next{right:10px}.gallery-caption{font-size:12px}.gallery-meta .eyebrow{font-size:10px}.gallery-thumbnails{margin-top:16px}.photo-dialog .modal-close{width:38px;height:38px}}
 .article-card{border-top:1px solid var(--line);padding-top:20px;text-align:left;cursor:pointer}
 .article-card img{height:230px;width:100%;object-fit:cover;transition:transform .5s}
 .article-img{overflow:hidden}
@@ -175,16 +202,10 @@
 .mobile-panel{position:fixed;inset:72px 0 auto;flex-direction:column;background:rgba(var(--canvas-rgb),.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:22px;gap:16px;box-shadow:0 16px 26px rgba(var(--charcoal-rgb),.07)}
 .mobile-panel a{font-size:15px;padding:10px}
 .steps{grid-template-columns:repeat(3,1fr);row-gap:25px}
-.hero-image{left:18%}
-.hero-image:after{background:linear-gradient(90deg,rgba(var(--canvas-rgb),.96),rgba(var(--canvas-rgb),.86) 40%,rgba(var(--canvas-rgb),.42))}
+
+
 .about-photo{height:380px}}
-@media(max-width:640px){.hero{min-height:770px}
-.hero .wrap{padding-top:110px}
-.hero h1{font-size:clamp(36px,10vw,48px)}
-.hero-image{left:0;opacity:.56;background-position:63% center}
-.hero-image:after{background:linear-gradient(90deg,rgba(var(--canvas-rgb),.93),rgba(var(--canvas-rgb),.72)),linear-gradient(0deg,var(--canvas),transparent)}
-.hero-kicker{font-size:9px}
-.section-space{padding:82px 0}
+@media(max-width:640px){.section-space{padding:82px 0}
 
 
 .solution-panel ul{grid-template-columns:1fr}
@@ -235,12 +256,88 @@
 .site-footer .backtop{border-color:var(--walnut);color:var(--canvas);transition:background .25s,color .25s,border-color .25s}
 .site-footer .backtop:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
 .site-footer a:focus-visible{outline-color:var(--brass)}
+/* Contact information and email-draft form. */
+.contact-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(36px,5vw,76px);align-items:start}
+.contact-title{font-size:clamp(32px,3.2vw,48px);margin-top:22px}
+.contact-intro{margin-top:24px;max-width:430px}
+.contact-details{margin:34px 0 0;padding:0}
+.contact-detail{padding:21px 0;border-top:1px solid var(--line)}
+.contact-detail dt{display:flex;align-items:center;gap:11px;color:var(--walnut);font-size:12px;font-weight:600;margin:0 0 10px}
+.contact-detail dt i{width:17px;text-align:center;font-size:14px}
+.contact-detail dd{margin:0;color:var(--charcoal);font-size:15px;line-height:1.9;overflow-wrap:anywhere}
+.contact-detail a{transition:color .2s}
+.contact-detail a:hover{color:var(--walnut)}
+.contact-detail address{font-style:normal}
+.contact-detail .contact-map-link{display:inline-flex;align-items:center;gap:10px;font-size:12px;color:var(--walnut);border-bottom:1px solid var(--taupe);margin-top:9px}
+.contact-booking{margin-top:25px;padding-top:26px;border-top:1px solid var(--line)}
+.contact-booking p{font-size:13px;line-height:1.9;color:var(--text-muted);margin:0 0 15px}
+.contact-form-card{padding:clamp(24px,3vw,40px);border:1px solid var(--line);border-radius:5px;background:var(--white);box-shadow:0 20px 55px rgba(var(--walnut-rgb),.045);min-width:0}
+.contact-form-card>.eyebrow{font-size:10px;letter-spacing:.15em}
+.contact-form-title{font-family:var(--font-display);font-size:28px;font-weight:600;line-height:1.5;margin:15px 0 12px;color:var(--charcoal)}
+.contact-form-help{font-size:13px;line-height:1.95;color:var(--text-muted);margin:0 0 28px}
+.contact-field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact-field{min-width:0;margin:0 0 22px;padding:0;border:0}
+.contact-field>label,.contact-label-row>label,.contact-service-fieldset>legend{display:block;font-size:13px;line-height:1.8;font-weight:600;color:var(--charcoal);margin-bottom:9px}
+.contact-required{color:var(--walnut);font-weight:600;margin-left:3px}
+.contact-optional{font-size:11px;font-weight:400;color:var(--text-muted)}
+.contact-control{display:block;width:100%;min-width:0;min-height:48px;padding:12px 13px;border:1px solid rgba(var(--walnut-rgb),.76);border-radius:3px;background:var(--canvas);color:var(--charcoal);font-family:var(--font-body);font-size:16px;font-weight:400;line-height:1.65;transition:border-color .2s,box-shadow .2s;scroll-margin-top:110px}
+.contact-control::placeholder{color:var(--text-muted);opacity:1;font-size:14px}
+.contact-control:focus{outline:2px solid var(--walnut);outline-offset:2px;border-color:var(--walnut)}
+.contact-control[aria-invalid=true]{border-color:var(--walnut);box-shadow:inset 0 0 0 1px var(--walnut)}
+.contact-field-hint{font-size:11px;line-height:1.9;color:var(--text-muted);margin:8px 0 0}
+.contact-field-error{font-size:12px;line-height:1.9;color:var(--walnut);font-weight:500;margin:8px 0 0}
+.contact-field-error[hidden],.contact-field[hidden],.contact-draft[hidden]{display:none}
+.contact-services{display:flex;flex-wrap:wrap;gap:9px}
+.contact-service-option{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:10px 12px;border:1px solid rgba(var(--walnut-rgb),.76);border-radius:3px;background:var(--canvas);color:var(--charcoal);font-size:13px;line-height:1.7;cursor:pointer}
+.contact-service-option input{width:18px;height:18px;flex-shrink:0;margin:0;accent-color:var(--walnut);cursor:pointer}
+.contact-service-option:has(input:checked){background:var(--stone);border-color:var(--walnut)}
+.contact-service-option:focus-within{outline:2px solid var(--walnut);outline-offset:2px}
+.contact-service-option input[aria-invalid=true]{outline:2px solid var(--walnut);outline-offset:2px}
+.contact-label-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.contact-character-count{font-family:Manrope,Inter,sans-serif;font-size:10px;color:var(--text-muted);white-space:nowrap}
+.contact-textarea{min-height:170px;resize:vertical}
+.contact-submit{width:100%;margin-top:3px}
+.contact-form-status{font-size:12px;line-height:1.9;color:var(--text-muted);margin:12px 0 0;overflow-wrap:anywhere}
+.contact-form-status:empty{display:none}
+.contact-draft{padding-top:26px;margin-top:26px;border-top:1px solid var(--line)}
+.contact-draft h4{font-size:17px;font-weight:600;line-height:1.7;margin:0 0 8px;scroll-margin-top:110px}
+.contact-draft-text-label{display:block;font-size:12px;font-weight:500;color:var(--charcoal);margin:18px 0 9px}
+.contact-draft-text{min-height:190px;font-size:13px;resize:vertical}
+.contact-draft-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.contact-draft-actions .btn{min-height:44px;font-size:12px;padding:10px 17px;white-space:normal}
+.footer-contact{display:flex;flex-direction:column;gap:7px;margin-top:18px;color:rgba(var(--canvas-rgb),.76);font-size:12px;line-height:1.9;overflow-wrap:anywhere}
+.footer-contact a{align-self:flex-start;color:var(--canvas);transition:color .2s}
+.footer-contact a:hover{color:var(--brass)}
+.footer-contact p{margin:0}
+@media(max-width:1023px){.contact-layout{grid-template-columns:1fr;gap:40px}.contact-intro{max-width:620px}.contact-details{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}.contact-title br{display:none}.contact-title{font-size:clamp(31px,4.5vw,44px)}.contact-booking{margin-top:10px}}
+@media(max-width:640px){.contact-details{grid-template-columns:1fr}.contact-form-card{padding:25px 20px}.contact-field-grid{grid-template-columns:1fr;gap:0}.contact-form-title{font-size:25px}.contact-form-help{font-size:12px}.contact-form-card>.eyebrow{font-size:9px;letter-spacing:.12em}.contact-service-option{font-size:12px;padding:10px}.contact-draft-actions{flex-direction:column}.contact-draft-actions .btn{width:100%}.contact-title{font-size:34px}.contact-control{font-size:16px}}
 </style>
 </head>
 <body>
-<header id="header" class="topnav" role="banner"><div class="wrap h-[76px] flex items-center justify-between gap-6"><a href="#home" class="flex items-center gap-3" aria-label="雙囍國際，回首頁"><div class="brandmark en">W<span style="font-size:15px;margin-left:0">W</span></div><div><div class="font-bold tracking-[.17em] text-[14px]">雙囍國際</div><div class="en text-[9px] tracking-[.18em] text-muted">WINNWINN DESIGN</div></div></a><nav class="desktop-links flex gap-7 items-center" aria-label="主選單"><a class="navlink en text-[11px] font-semibold" href="#home">HOME</a><a class="navlink en text-[11px] font-semibold" href="#about">ABOUT</a><a class="navlink en text-[11px] font-semibold" href="#solutions">SOLUTIONS</a><a class="navlink en text-[11px] font-semibold" href="#projects">PROJECTS</a><a class="navlink en text-[11px] font-semibold" href="#insights">INSIGHTS</a><a class="navlink en text-[11px] font-semibold" href="#contact">CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline !min-h-[38px] !px-4 !text-[11px]" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></nav><button id="menu-toggle" aria-label="開啟選單" aria-controls="mobile-menu" aria-expanded="false" class="border border-line rounded-full h-11 w-11 flex items-center justify-center text-xl">☰</button></div><nav id="mobile-menu" class="mobile-panel" aria-label="手機選單"><a href="#home">首頁 HOME</a><a href="#about">關於雙囍 ABOUT</a><a href="#solutions">設計裝修解決方案 SOLUTIONS</a><a href="#projects">精選作品 PROJECTS</a><a href="#insights">專業洞察 INSIGHTS</a><a href="#contact">聯絡我們 CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 ↗</a></nav></header>
+<header id="header" class="topnav" role="banner"><div class="wrap h-[76px] flex items-center justify-between gap-6"><a href="#home" class="flex items-center gap-3" aria-label="雙囍國際，回首頁"><div class="brandmark en">W<span style="font-size:15px;margin-left:0">W</span></div><div><div class="font-bold tracking-[.17em] text-[14px]">雙囍國際</div><div class="en text-[10px] tracking-[.18em] text-muted">WINNWINN DESIGN</div></div></a><nav class="desktop-links flex gap-7 items-center" aria-label="主選單"><a class="navlink en text-[11px] font-semibold" href="#home">HOME</a><a class="navlink en text-[11px] font-semibold" href="#about">ABOUT</a><a class="navlink en text-[11px] font-semibold" href="#solutions">SOLUTIONS</a><a class="navlink en text-[11px] font-semibold" href="#projects">PROJECTS</a><a class="navlink en text-[11px] font-semibold" href="#insights">INSIGHTS</a><a class="navlink en text-[11px] font-semibold" href="#contact">CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline !min-h-[38px] !px-4 !text-[11px]" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></nav><button id="menu-toggle" aria-label="開啟選單" aria-controls="mobile-menu" aria-expanded="false" class="border border-line rounded-full h-11 w-11 flex items-center justify-center text-xl">☰</button></div><nav id="mobile-menu" class="mobile-panel" aria-label="手機選單"><a href="#home">首頁 HOME</a><a href="#about">關於雙囍 ABOUT</a><a href="#solutions">設計裝修解決方案 SOLUTIONS</a><a href="#projects">精選作品 PROJECTS</a><a href="#insights">專業洞察 INSIGHTS</a><a href="#contact">聯絡我們 CONTACT</a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 ↗</a></nav></header>
 <main>
-<section id="home" class="hero"><div class="hero-image" role="img" aria-label="雙囍國際連鎖餐飲室內裝修實景，弧形卡座與用餐空間"></div><div class="hero-grid"></div><div class="hero-glow"></div><div class="wrap"><div class="max-w-3xl"><div class="hero-kicker mb-10"><span></span>WINNWINN DESIGN · SPACE & VALUE</div><p class="eyebrow mb-7">DESIGNING SPACES. CREATING VALUE.</p><h1 id="hero-title" aria-label="以設計創造價值，讓專業成就空間。"><span class="line">以設計創造價值，</span><span class="line">讓專業成就空間。</span></h1><p class="hero-desc mt-8">從空間策略到精準工程，雙囍國際以顧問式思維整合美學、機能與施工專業，成就更具競爭力的空間價值。</p><div class="flex flex-wrap gap-4 mt-10"><a href="#projects" class="btn btn-primary">探索精選作品 <span aria-hidden="true">↗</span></a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline" target="_blank" rel="noopener noreferrer">預約專業諮詢 <span aria-hidden="true">↗</span></a></div><p class="status mt-5">Status: Ready to Connect</p></div></div><a href="#about" class="scrollcue">SCROLL TO EXPLORE</a></section>
+<section id="home" class="hero" aria-labelledby="hero-title" data-video-state="loading">
+  <div class="hero-media" aria-hidden="true"><div class="hero-poster"></div><div id="hero-video-wrap" class="hero-video"></div></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <p class="hero-kicker"><span aria-hidden="true"></span>WINNWINN DESIGN · SPACE & VALUE</p>
+      <p class="eyebrow hero-eyebrow">DESIGNING SPACES. CREATING VALUE.</p>
+      <h1 id="hero-title"><span class="line">以設計創造價值，</span><span class="line">讓專業成就空間。</span></h1>
+      <p class="hero-desc">從空間策略到精準工程，雙囍國際以顧問式思維整合美學、機能與施工專業，成就更具競爭力的空間價值。</p>
+      <div class="hero-actions"><a href="#projects" class="btn btn-primary">探索精選作品 <span aria-hidden="true">↗</span></a><a href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" class="btn btn-outline" target="_blank" rel="noopener noreferrer">預約專業諮詢 <span aria-hidden="true">↗</span></a></div>
+      <p class="hero-note">品牌策略 × 空間設計 × 工程整合</p>
+    </div>
+  </div>
+  <div class="hero-footer"><div class="wrap">
+    <a href="#about" class="scrollcue">SCROLL TO EXPLORE</a>
+    <div class="hero-video-controls">
+      <span id="hero-video-status" class="hero-video-status" role="status" aria-live="polite">靜音背景影片</span>
+      <button id="hero-video-toggle" class="hero-video-toggle" type="button" aria-label="播放背景影片"><span class="hero-video-symbol" aria-hidden="true">▶</span><span class="hero-video-label">播放影片</span></button>
+      <a id="hero-video-source" class="hero-video-source" href="https://www.youtube.com/watch?v=HEMlIn6MDD8" target="_blank" rel="noopener noreferrer" hidden>觀看原片 ↗</a>
+    </div>
+  </div></div>
+</section>
 <section id="about" class="section-space"><div class="wrap"><div class="grid lg:grid-cols-[.95fr_1.05fr] gap-14 xl:gap-24"><div class="reveal"><p class="eyebrow">01 / ABOUT WINNWINN DESIGN</p><h2 class="section-heading mt-6">專業築基・創新思維<br><span class="accent-text">重塑空間價值</span></h2><div class="line-deco"></div><p class="statement mb-8">讓設計不只是美學呈現，更成為提升品牌價值與營運效能的關鍵力量。</p><p class="section-copy">雙囍國際管理顧問室內裝修有限公司，以專業工程實力為基礎，結合創新設計與企業管理思維，致力提供兼具美學、機能、安全與商業效益的空間整合方案。我們相信，每一個空間都承載著不同的品牌故事，而好的設計，不僅能改變環境，更能創造長遠價值。</p><figure class="about-work mt-10">
   <div class="about-work-images">
     <button type="button" class="about-work-photo" data-feature-photo="dining-atrium" aria-label="放大查看連鎖餐飲案例：挑高與植栽">
@@ -326,9 +423,59 @@
     </div>
   </div>
 </section>
-<section id="contact" class="section-space contact-zone"><div class="wrap"><div class="grid lg:grid-cols-[1.25fr_.75fr] gap-16 items-end"><div class="reveal"><p class="eyebrow">06 / LET'S CREATE SOMETHING MEANINGFUL</p><h2 class="section-heading mt-6">讓我們一起，<br>實現空間的<span class="accent-text">更多可能。</span></h2><p class="section-copy mt-8 max-w-2xl">無論是品牌展店、商業空間升級、住宅改造或專業工程整合，雙囍國際以設計思維與務實專業，成為值得信賴的合作夥伴。</p><div class="flex flex-wrap items-center gap-5 mt-10"><a class="btn btn-primary" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 ↗</a><span class="status">Status: Ready to Connect</span></div></div><div class="reveal border-t border-line pt-7"><p class="eyebrow mb-8">HOW WE WORK TOGETHER</p><div class="flex flex-col gap-6"><div class="flex gap-5 items-center"><span class="text-accent en text-xs">01</span><span class="font-semibold">探索需求</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">02</span><span class="font-semibold">專業溝通</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">03</span><span class="font-semibold">初步規劃</span></div><div class="h-5 w-px bg-line ml-[6px]"></div><div class="flex gap-5 items-center"><span class="text-accent en text-xs">04</span><span class="font-semibold">展開合作</span></div></div><p class="mt-8 text-[12px] leading-7 text-muted">目前以 Google Calendar 預約頁面為正式諮詢入口。電話、信箱及地址待提供後即可補上。</p></div></div></div></section>
+<section id="contact" class="section-space contact-zone" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-layout">
+      <div class="contact-information reveal">
+        <p class="eyebrow">06 / GET IN TOUCH</p>
+        <h2 id="contact-title" class="section-heading contact-title">與我們<br><span class="accent-text">取得聯繫。</span></h2>
+        <p class="section-copy contact-intro">從品牌展店、商業空間升級，到住宅改造與無障礙友善規劃，歡迎告訴我們您的構想，讓雙囍國際與您一起實現空間的更多可能。</p>
+        <dl class="contact-details">
+          <div class="contact-detail"><dt><i class="fa-solid fa-envelope" aria-hidden="true"></i>聯絡信箱</dt><dd><a href="mailto:prime.utility8@gmail.com">prime.utility8@gmail.com <span aria-hidden="true">↗</span></a></dd></div>
+          <div class="contact-detail"><dt><i class="fa-solid fa-phone" aria-hidden="true"></i>電話</dt><dd><a href="tel:+886227036098">(02)2703-6098</a></dd></div>
+          <div class="contact-detail"><dt><i class="fa-solid fa-location-dot" aria-hidden="true"></i>地址</dt><dd><address>106068 台北市大安區信義路4段296號15樓</address><a class="contact-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=106068%20台北市大安區信義路4段296號15樓" target="_blank" rel="noopener noreferrer">查看地圖 <span aria-hidden="true">↗</span></a></dd></div>
+          <div class="contact-detail"><dt><i class="fa-solid fa-building" aria-hidden="true"></i>統一編號</dt><dd class="en">90587376</dd></div>
+        </dl>
+        <div class="contact-booking"><p>想直接安排時間聊聊？</p><a class="btn btn-outline" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約專業諮詢 <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <div class="contact-form-card reveal">
+        <p class="eyebrow">TELL US ABOUT YOUR SPACE</p>
+        <h3 id="contact-form-title" class="contact-form-title">聯絡我們</h3>
+        <p id="contact-form-help" class="contact-form-help">填寫後會開啟寄往我們信箱的郵件草稿，請於您的郵件程式確認後寄出。標示 <span aria-hidden="true">*</span> 為必填。</p>
+        <form id="contact-form" action="mailto:prime.utility8@gmail.com" method="post" enctype="text/plain" data-recipient="prime.utility8@gmail.com" aria-labelledby="contact-form-title" aria-describedby="contact-form-help">
+          <div class="contact-field-grid">
+            <div class="contact-field"><label for="contact-name">您的姓名／稱呼 <span class="contact-required" aria-hidden="true">*</span></label><input id="contact-name" class="contact-control" name="name" type="text" autocomplete="name" maxlength="60" placeholder="請問如何稱呼您？" required aria-describedby="contact-name-error"><p id="contact-name-error" class="contact-field-error" hidden></p></div>
+            <div class="contact-field"><label for="contact-email">聯絡電子信箱 <span class="contact-required" aria-hidden="true">*</span></label><input id="contact-email" class="contact-control" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required aria-describedby="contact-email-error"><p id="contact-email-error" class="contact-field-error" hidden></p></div>
+          </div>
+          <div class="contact-field"><label for="contact-phone">聯絡電話 <span class="contact-optional">（選填）</span></label><input id="contact-phone" class="contact-control" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" placeholder="若希望電話聯繫，請留下電話" aria-describedby="contact-phone-error"><p id="contact-phone-error" class="contact-field-error" hidden></p></div>
+          <fieldset class="contact-field contact-service-fieldset" aria-describedby="contact-services-hint contact-services-error">
+            <legend>您的需求 <span class="contact-required" aria-hidden="true">*</span> <span class="contact-optional">（可複選）</span></legend>
+            <div class="contact-services">
+              <label class="contact-service-option"><input id="contact-service-design" name="services" type="checkbox" value="室內設計" aria-describedby="contact-services-hint contact-services-error"><span>室內設計</span></label>
+              <label class="contact-service-option"><input name="services" type="checkbox" value="室內裝修" aria-describedby="contact-services-hint contact-services-error"><span>室內裝修</span></label>
+              <label class="contact-service-option"><input name="services" type="checkbox" value="無障礙空間設計規劃" aria-describedby="contact-services-hint contact-services-error"><span>無障礙空間設計規劃</span></label>
+            </div>
+            <p id="contact-services-hint" class="contact-field-hint">請至少選擇一項服務。</p><p id="contact-services-error" class="contact-field-error" hidden></p>
+          </fieldset>
+          <div class="contact-field"><div class="contact-label-row"><label for="contact-message">需求簡介 <span class="contact-required" aria-hidden="true">*</span></label><span id="contact-message-count" class="contact-character-count">0 / 5000</span></div><textarea id="contact-message" class="contact-control contact-textarea" name="message" rows="6" maxlength="5000" placeholder="歡迎描述空間用途、所在區域、預計坪數、時程及希望改善的地方。" required aria-describedby="contact-message-hint contact-message-error"></textarea><p id="contact-message-hint" class="contact-field-hint">可填寫詳細需求，最多 5000 字。</p><p id="contact-message-error" class="contact-field-error" hidden></p></div>
+          <div class="contact-field"><label for="contact-time">適合聯絡的時間 <span class="contact-required" aria-hidden="true">*</span></label><select id="contact-time" class="contact-control" name="contactTime" required aria-describedby="contact-time-hint contact-time-error"><option value="" selected disabled>請選擇方便聯絡的時段</option><option value="時間彈性，請先以電子郵件聯繫">時間彈性，請先以電子郵件聯繫</option><option value="平日上午 09:00–12:00">平日上午 09:00–12:00</option><option value="平日下午 13:00–18:00">平日下午 13:00–18:00</option><option value="平日晚上 18:00–20:00">平日晚上 18:00–20:00</option><option value="週六 10:00–17:00">週六 10:00–17:00</option><option value="其他時間">其他時間（自行填寫）</option></select><p id="contact-time-hint" class="contact-field-hint">以上為您方便聯絡的偏好時段，以台北時間（UTC+8）為準。</p><p id="contact-time-error" class="contact-field-error" hidden></p></div>
+          <div id="contact-custom-time-field" class="contact-field" hidden><label for="contact-custom-time">請補充方便聯絡的時間 <span class="contact-required" aria-hidden="true">*</span></label><input id="contact-custom-time" class="contact-control" name="customTime" type="text" maxlength="120" placeholder="例如：週二、週四 15:00–17:00" disabled aria-describedby="contact-custom-time-error"><p id="contact-custom-time-error" class="contact-field-error" hidden></p></div>
+          <button class="btn btn-primary contact-submit" type="submit">開啟郵件草稿 <span aria-hidden="true">↗</span></button>
+          <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+        <div id="contact-draft" class="contact-draft" hidden>
+          <h4 id="contact-draft-title" tabindex="-1">您的聯絡內容</h4>
+          <p id="contact-draft-help" class="contact-field-hint"></p>
+          <label for="contact-draft-text" class="contact-draft-text-label">完整內容（可選取複製）</label><textarea id="contact-draft-text" class="contact-control contact-draft-text" rows="8" readonly spellcheck="false" aria-describedby="contact-draft-help"></textarea>
+          <div class="contact-draft-actions"><button id="contact-copy" class="btn btn-outline" type="button">複製完整內容</button><a id="contact-draft-link" class="btn btn-primary" href="mailto:prime.utility8@gmail.com">再次開啟郵件草稿 <span aria-hidden="true">↗</span></a></div>
+          <p id="contact-copy-status" class="contact-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
-<footer class="site-footer border-t py-14"><div class="wrap"><div class="grid md:grid-cols-[1.5fr_1fr_auto] gap-10 items-start"><div><div class="text-xl font-bold tracking-wider">雙囍國際</div><p class="en text-xs text-muted tracking-[.17em] mt-1">WINNWINN DESIGN</p><p class="text-muted text-[13px] leading-8 mt-5">雙囍國際管理顧問室內裝修有限公司<br>以專業實現承諾，以創新拓展可能，以設計創造價值。</p></div><div><p class="eyebrow mb-6">QUICK LINKS</p><div class="grid grid-cols-2 gap-4"><a class="footer-link" href="#about">關於雙囍</a><a class="footer-link" href="#solutions">服務方案</a><a class="footer-link" href="#projects">精選作品</a><a class="footer-link" href="#insights">專業洞察</a><a class="footer-link" href="#contact">聯絡我們</a><a class="footer-link" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></div></div><a href="#home" class="backtop" aria-label="回到頂端">↑</a></div><div class="border-t border-line mt-12 pt-7 flex flex-wrap justify-between gap-3"><p class="en text-[11px] text-muted">Copyright © 2026 Winnwinn Design. All Rights Reserved.</p><p class="text-[11px] text-muted">空間設計・室內裝修・工程整合</p></div></div></footer>
+<footer class="site-footer border-t py-14"><div class="wrap"><div class="grid md:grid-cols-[1.5fr_1fr_auto] gap-10 items-start"><div><div class="text-xl font-bold tracking-wider">雙囍國際</div><p class="en text-xs text-muted tracking-[.17em] mt-1">WINNWINN DESIGN</p><p class="text-muted text-[13px] leading-8 mt-5">雙囍國際管理顧問室內裝修有限公司<br>以專業實現承諾，以創新拓展可能，以設計創造價值。</p><div class="footer-contact"><a href="mailto:prime.utility8@gmail.com">prime.utility8@gmail.com</a><a href="tel:+886227036098">(02)2703-6098</a><p>106068 台北市大安區信義路4段296號15樓<br>統編：90587376</p></div></div><div><p class="eyebrow mb-6">QUICK LINKS</p><div class="grid grid-cols-2 gap-4"><a class="footer-link" href="#about">關於雙囍</a><a class="footer-link" href="#solutions">服務方案</a><a class="footer-link" href="#projects">精選作品</a><a class="footer-link" href="#insights">專業洞察</a><a class="footer-link" href="#contact">聯絡我們</a><a class="footer-link" href="https://calendar.app.google/qvwZUFc56zV5Cf4N6" target="_blank" rel="noopener noreferrer">預約諮詢 ↗</a></div></div><a href="#home" class="backtop" aria-label="回到頂端">↑</a></div><div class="border-t border-line mt-12 pt-7 flex flex-wrap justify-between gap-3"><p class="en text-[11px] text-muted">Copyright © 2026 Winnwinn Design. All Rights Reserved.</p><p class="text-[11px] text-muted">空間設計・室內裝修・工程整合</p></div></div></footer>
 <div id="modal" class="modal" role="presentation" aria-hidden="true"><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><button class="modal-close" id="modal-close" aria-label="關閉詳細內容">×</button><div id="modal-body"></div></div></div>
 <script>
 'use strict';
@@ -462,7 +609,190 @@ const menu=$('#mobile-menu'),toggle=$('#menu-toggle');function setMenu(open){men
 function navUpdate(){ $('#header').classList.toggle('scrolled',scrollY>35);let id='home';$$('main section[id]').forEach(s=>{if(s.getBoundingClientRect().top<=150)id=s.id});$$('.navlink').forEach(a=>{const active=a.getAttribute('href')==='#'+id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}window.addEventListener('scroll',navUpdate,{passive:true});navUpdate();
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if('IntersectionObserver' in window&&!reduce){const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1});$$('.reveal').forEach(x=>obs.observe(x))}else $$('.reveal').forEach(x=>x.classList.add('visible'));
-// 逐字動畫僅執行一次；標題預先寫入 HTML 供 SEO 與無 JS 使用，且保留預設佔位以避免版面跳動。
-if(!reduce){const title=$('#hero-title');const text=SITE.slogan;const lines=$$('.line',title);const original=lines.map(x=>x.textContent);const cursor=document.createElement('span');cursor.className='typing-caret';cursor.setAttribute('aria-hidden','true');title.style.minHeight=title.offsetHeight+'px';lines.forEach(x=>x.textContent='');lines[1].appendChild(cursor);let n=0;function tick(){n++;const show=text.slice(0,n),cut=original[0].length;lines[0].textContent=show.slice(0,cut);lines[1].textContent=show.slice(cut);lines[1].appendChild(cursor);if(n<text.length){const c=text[n-1];setTimeout(tick,c==='，'||c==='。'?250:70)}else{cursor.classList.add('done');setTimeout(()=>cursor.remove(),550)}}setTimeout(tick,230)}
+// Prepare an email draft locally. Nothing is transmitted by the form itself.
+(()=>{
+  const form=$('#contact-form'),recipient=form.dataset.recipient;
+  const name=$('#contact-name'),email=$('#contact-email'),phone=$('#contact-phone'),message=$('#contact-message'),time=$('#contact-time'),customTime=$('#contact-custom-time');
+  const services=$$('input[name="services"]',form),status=$('#contact-form-status'),draft=$('#contact-draft'),draftText=$('#contact-draft-text'),draftLink=$('#contact-draft-link'),draftHelp=$('#contact-draft-help'),copyStatus=$('#contact-copy-status');
+  let attempted=false,prepared=null;
+  form.noValidate=true;
+  function setError(input,errorId,text){
+    input.setCustomValidity(text);
+    if(text)input.setAttribute('aria-invalid','true');else input.removeAttribute('aria-invalid');
+    const error=document.getElementById(errorId);error.textContent=text;error.hidden=!text;
+    return text?input:null;
+  }
+  function syncCustomTime(){
+    const custom=time.value==='其他時間';
+    $('#contact-custom-time-field').hidden=!custom;customTime.disabled=!custom;customTime.required=custom;
+    if(!custom)setError(customTime,'contact-custom-time-error','');
+  }
+  function syncServiceValidity(){
+    services[0].setCustomValidity(services.some(input=>input.checked)?'':'請至少選擇一項服務需求。');
+  }
+  function validate(){
+    const invalid=[];
+    const verify=(input,id,text)=>{const result=setError(input,id,text);if(result)invalid.push(result)};
+    verify(name,'contact-name-error',!name.value.trim()?'請填寫您的姓名或稱呼。':name.value.trim().length>60?'姓名或稱呼請控制在 60 字以內。':'');
+    email.setCustomValidity('');
+    verify(email,'contact-email-error',!email.value.trim()?'請填寫聯絡電子信箱。':email.validity.typeMismatch||email.value.trim().length>254?'請填寫有效的電子信箱，例如 you@example.com。':'');
+    verify(phone,'contact-phone-error',phone.value.trim().length>40?'聯絡電話請控制在 40 字以內。':'');
+    verify(services[0],'contact-services-error',services.some(input=>input.checked)?'':'請至少選擇一項服務需求。');
+    verify(message,'contact-message-error',!message.value.trim()?'請簡單描述您的空間需求。':message.value.length>5000?'需求簡介最多可填寫 5000 字。':'');
+    verify(time,'contact-time-error',!time.value?'請選擇方便聯絡的時間。':'');
+    verify(customTime,'contact-custom-time-error',!customTime.disabled&&!customTime.value.trim()?'請補充方便聯絡的時間。':!customTime.disabled&&customTime.value.trim().length>120?'聯絡時間請控制在 120 字以內。':'');
+    return invalid;
+  }
+  function markEdited(){
+    $('#contact-message-count').textContent=`${message.value.length} / 5000`;
+    syncCustomTime();
+    syncServiceValidity();
+    if(!draft.hidden){draft.hidden=true;prepared=null;draftText.value='';copyStatus.textContent='';status.textContent='內容已更新，請重新開啟郵件草稿。'}
+    if(attempted)validate();
+  }
+  form.addEventListener('input',markEdited);form.addEventListener('change',markEdited);
+  form.addEventListener('submit',event=>{
+    event.preventDefault();attempted=true;syncCustomTime();
+    const invalid=validate();
+    if(invalid.length){
+      status.textContent='請確認標示的欄位，再開啟郵件草稿。';
+      invalid[0].scrollIntoView({block:'center',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      invalid[0].focus({preventScroll:true});return;
+    }
+    const selected=services.filter(input=>input.checked).map(input=>input.value).join('、');
+    const preferred=time.value==='其他時間'?customTime.value.trim():time.value;
+    const subject=`雙囍國際｜空間需求諮詢 — ${name.value.trim()}`;
+    const body=[
+      '雙囍國際您好：','','我想諮詢以下空間需求：','',
+      `姓名／稱呼：${name.value.trim()}`,`聯絡電子信箱：${email.value.trim()}`,
+      `聯絡電話：${phone.value.trim()||'未提供'}`,`您的需求：${selected}`,
+      `適合聯絡的時間：${preferred}（台北時間 UTC+8）`,'','需求簡介：',message.value.trim(),'','謝謝！'
+    ].join('\r\n').replace(/\r\n?|\n/g,'\r\n');
+    const base=`mailto:${recipient}?subject=${encodeURIComponent(subject)}`;
+    const full=`${base}&body=${encodeURIComponent(body)}`;
+    const isLong=full.length>1800;
+    prepared={subject,body,copy:`收件信箱：${recipient}\r\n主旨：${subject}\r\n\r\n${body}`};
+    draftText.value=prepared.copy;draftLink.href=isLong?base:full;copyStatus.textContent='';draft.hidden=false;
+    if(isLong){
+      draftHelp.textContent='需求內容較長，請先複製完整內容，再開啟郵件草稿貼上並寄出。草稿連結會先填入收件人與主旨。';
+      draftLink.innerHTML='開啟郵件草稿 <span aria-hidden="true">↗</span>';
+      status.textContent='聯絡內容已整理。請先複製下方完整內容，再開啟郵件草稿貼上寄出。';
+      $('#contact-draft-title').focus({preventScroll:true});draft.scrollIntoView({block:'nearest',behavior:'auto'});
+    }else{
+      draftHelp.textContent='若郵件程式未開啟，您可以複製下方完整內容，寄至 '+recipient+'。';
+      draftLink.innerHTML='再次開啟郵件草稿 <span aria-hidden="true">↗</span>';
+      status.textContent='正在嘗試開啟您的郵件程式。請確認草稿內容後寄出；此頁尚未寄送任何資料。';
+      draftLink.click();
+    }
+  });
+  $('#contact-copy').addEventListener('click',async()=>{
+    if(!prepared)return;
+    try{
+      if(!navigator.clipboard?.writeText)throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(prepared.copy);
+      copyStatus.textContent='已複製完整聯絡內容，請貼到郵件中，確認後寄出。';
+    }catch{
+      draftText.focus();draftText.select();draftText.setSelectionRange(0,draftText.value.length);
+      copyStatus.textContent='已選取完整內容。電腦請按 Ctrl+C／Command+C；手機可長按複製，再貼到郵件中寄出。';
+    }
+  });
+  syncCustomTime();syncServiceValidity();
+})();
+// YouTube background: muted inline playback, a single-video playlist loop, and a real-photo fallback.
+const heroVideo=(()=>{
+  const VIDEO_ID='HEMlIn6MDD8';
+  const hero=$('#home'),container=$('#hero-video-wrap'),toggle=$('#hero-video-toggle'),status=$('#hero-video-status');
+  const symbol=$('.hero-video-symbol',toggle),label=$('.hero-video-label',toggle),source=$('#hero-video-source');
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let player=null,ready=false,apiLoading=false,startupTimer=null;
+  let wanted=!motion.matches,inViewport=hero.getBoundingClientRect().bottom>0;
+  let state=motion.matches?'static':'loading';
+  function setState(next){
+    state=next;hero.dataset.videoState=next;
+    const states={loading:['◌','載入影片','影片載入中','背景影片載入中'],playing:['Ⅱ','暫停影片','靜音循環播放','暫停背景影片'],paused:['▶','播放影片','背景影片已暫停','播放背景影片'],static:['▶','播放影片','靜態封面','播放背景影片'],blocked:['▶','播放影片','點選播放影片','播放背景影片'],unavailable:['↻','重試影片','影片暫時無法播放','重新載入背景影片']};
+    const copy=states[next];symbol.textContent=copy[0];label.textContent=copy[1];status.textContent=copy[2];toggle.setAttribute('aria-label',copy[3]);
+    toggle.disabled=next==='loading';
+    source.hidden=next!=='unavailable';
+  }
+  function sizeVideo(){
+    const width=hero.clientWidth,height=hero.clientHeight;
+    hero.style.setProperty('--hero-video-width',Math.ceil(Math.max(width,height*16/9))+'px');
+    hero.style.setProperty('--hero-video-height',Math.ceil(Math.max(height,width*9/16))+'px');
+  }
+  function shouldPlay(){return wanted&&inViewport&&!document.hidden}
+  function syncPlayback(){
+    if(!ready||!player)return;
+    if(shouldPlay()){player.mute();player.playVideo()}else player.pauseVideo();
+  }
+  function unavailable(){
+    clearTimeout(startupTimer);apiLoading=false;
+    hero.classList.remove('video-ready');setState('unavailable');
+  }
+  function watchStartup(){
+    clearTimeout(startupTimer);
+    startupTimer=setTimeout(()=>{if(state!=='loading')return;if(!ready||shouldPlay())unavailable();else setState('paused')},20000);
+  }
+  function mountPlayer(){
+    if(player||!window.YT?.Player)return;
+    apiLoading=false;
+    const parameters=new URLSearchParams({autoplay:wanted?'1':'0',mute:'1',loop:'1',playlist:VIDEO_ID,playsinline:'1',controls:'0',disablekb:'1',fs:'0',rel:'0',enablejsapi:'1',iv_load_policy:'3',cc_load_policy:'0'});
+    if(location.protocol==='http:'||location.protocol==='https:')parameters.set('origin',location.origin);
+    const frame=document.createElement('iframe');
+    frame.id='hero-youtube-player';frame.title='首頁空間設計背景影片';
+    frame.allow='autoplay; encrypted-media; picture-in-picture';
+    frame.referrerPolicy='strict-origin-when-cross-origin';frame.tabIndex=-1;frame.setAttribute('aria-hidden','true');
+    frame.src=`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?${parameters}`;
+    container.replaceChildren(frame);sizeVideo();
+    player=new YT.Player(frame.id,{events:{
+      onReady(event){
+        if(event.target!==player)return;
+        ready=true;event.target.mute();event.target.setLoop(true);
+        syncPlayback();
+        if(!wanted){clearTimeout(startupTimer);setState('paused')}
+      },
+      onStateChange(event){
+        if(event.target!==player)return;
+        if(event.data===YT.PlayerState.PLAYING){
+          if(!shouldPlay()){event.target.pauseVideo();return}
+          clearTimeout(startupTimer);hero.classList.add('video-ready');setState('playing');
+        }else if(event.data===YT.PlayerState.ENDED){
+          if(shouldPlay()){event.target.seekTo(0,true);event.target.playVideo()}
+        }else if(event.data===YT.PlayerState.PAUSED&&state!=='unavailable')setState('paused');
+      },
+      onAutoplayBlocked(event){if(event.target!==player)return;clearTimeout(startupTimer);setState('blocked')},
+      onError(event){if(event.target===player)unavailable()}
+    }});
+  }
+  function loadVideo(){
+    setState('loading');watchStartup();
+    if(window.YT?.Player){mountPlayer();return}
+    if(apiLoading)return;
+    apiLoading=true;
+    document.getElementById('hero-youtube-api')?.remove();
+    const script=document.createElement('script');script.id='hero-youtube-api';script.src='https://www.youtube.com/iframe_api';script.async=true;
+    script.onerror=unavailable;document.head.appendChild(script);
+  }
+  const previousReady=window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady=()=>{if(typeof previousReady==='function')previousReady();mountPlayer()};
+  toggle.addEventListener('click',()=>{
+    if(state==='playing'){wanted=false;player?.pauseVideo();setState('paused');return}
+    wanted=true;
+    if(state==='unavailable'){
+      player?.destroy();player=null;ready=false;container.replaceChildren();loadVideo();
+    }else if(ready){setState('loading');watchStartup();syncPlayback()}
+    else loadVideo();
+  });
+  if('ResizeObserver' in window)new ResizeObserver(sizeVideo).observe(hero);
+  window.addEventListener('resize',sizeVideo,{passive:true});sizeVideo();
+  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{
+    inViewport=entries[0].isIntersecting;
+    syncPlayback();
+  },{threshold:0}).observe(hero);
+  document.addEventListener('visibilitychange',syncPlayback);
+  motion.addEventListener('change',event=>{if(event.matches){wanted=false;syncPlayback();setState('static')}});
+  setState(state);
+  if(wanted)loadVideo();
+  return {pause(){wanted=false;syncPlayback();setState('paused')}};
+})();
 </script>
 </body></html>
